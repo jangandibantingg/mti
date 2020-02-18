@@ -14,7 +14,7 @@
             </script>
 
 
-            <?php 
+            <?php
             }
             ?>
 
@@ -73,57 +73,29 @@
           echo "</thead>\n";
           echo "<tbody>\n";
           foreach($dirlist as $file) {
-            echo "<tr>\n";
-            echo "<td>{$file['name']}</td>\n";
             $filename=$file['name'];
+            echo "<tr id='row$filename'>\n";
+            echo "<td id=filename$filename>$filename</td>\n";
             $a=mysqli_query($con, "SELECT filename from ima_file where filename='$filename'");
             if(!$a || mysqli_num_rows($a) == 0 ){
-              echo "<td>belum terupdate</d>";
+            ?>
+
+            <td>
+              <input type='hidden' id='search' value="<?php echo "$filename"; ?>">
+              <button type="button" id="but_search" class="btn megna-theme text-light" name="button"> Get Data </button>
+              <p style='display: none;' id="but_success" ><i class='ti-receipt'></i> Terupdate</p>
+
+            </td>
+
+
+
+              <?php
+
               // ===================================================================================
 
-              $file_handle = fopen("file:///$filename", "rb");
 
-              while (!feof($file_handle) ) {
-                  $line_of_text = fgets($file_handle);
-
-                  $part2 = explode('|', $line_of_text); //mencari  id transfer
-
-                  $part3 = explode('"', $line_of_text); //mencari station Penerima
-
-                  $idstart = explode('(', $part3[5]);
-
-                  $id = explode(')',$idstart[1]); // id station Penerimaan
-
-                  $idpenerimaan=explode(' (', $part3[7]);
-
-                  $id2=explode(')',$idpenerimaan[1]); // id station Penerima
-
-                  $logdatepenerima=explode(' ',$part3[11]);
-
-                  $tp =" $logdatepenerima[2] $logdatepenerima[3] $logdatepenerima[4] "; //tanggal penerima
-                  $tanggalpenerima=date('Y/m/d', strtotime($tp));
-
-                  $station_penerima=str_replace("(".$id[0].")"," ",$part3[5]);
-                  $station_penerimaan=str_replace("(".$id2[0].")"," ",$part3[7]);
-
-                  if ($part3[5] != 'Clear (-1)' && $part2[3] != null ) {
-                    // code...
-
-                    mysqli_query($con,
-                    " INSERT INTO ima_data (filename, transfer, station_penerimaan, station_penerima, log_penerimaan, log_penerima, tanggal, status, id_station)
-                          VALUES ('$filename','$part2[3]', '$station_penerimaan', '$station_penerima', '$part3[9]', '$logdatepenerima[0]', '$tanggalpenerima', '$part3[1]','$id[0]')");
-
-
-                      }
-              }
-              fclose($file_handle);
-
-
-
-              // ==================================================================================
-              mysqli_query($con, "insert into ima_file  (filename,date) values ('$filename','$date')");
             }else{
-              echo "<td>terupdate</d>";
+              echo "<td> <i class='ti-receipt'></i> Terupdate</d>";
             }
 
             echo "</tr>\n";
@@ -139,3 +111,48 @@
 
 </div>
   </div>
+
+<script>
+
+  $(document).ready(function(){
+
+   $("#but_search").click(function(){
+    var search = $('#search').val();
+
+    $.ajax({
+     url: 'control/ima-file-update.php',
+     type: 'post',
+     data: {search:search},
+     beforeSend: function(){
+      // Show image container
+      $("#loader").show();
+     },
+     success: function(response){
+      $('.response').empty();
+      $('.response').append(response);
+     },
+     complete:function(data){
+      // Hide image container
+      $("#loader").hide();
+      $("#but_success").show();
+      $("#but_search").hide();
+     }
+    });
+
+   });
+  });
+  </script>
+
+
+
+  <!-- Image loader -->
+  <div id='loader' style='display: none;'>
+    <div class="loader">
+        <div class="loader__figure"></div>
+        <p class="loader__label"<?php echo "$web[title]"; ?></p>
+    </div>
+  </div>
+
+
+
+  <div class='response'></div>

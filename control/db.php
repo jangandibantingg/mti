@@ -1,7 +1,7 @@
 <?php
     // Konfigurasi database anda
     $host = "localhost";
-    $dbname = "backup";
+    $dbname = "ima";
     $username = "root";
     $password = "";
 

@@ -10,15 +10,7 @@
 
                         </div>
                         <div class="card-body">
-                          <div class="col-md-6">
-                            <span class="font-weight-bold"> <i class="ti-printer"></i> KASIR / WAITER </span><br>
-                            Karyawan ini bertugas sebagai kasir atau pramusaji, mereka hanya mendapatkan hak akses di aplikasi kasir.
-                          </div>
-                          <hr>
-                          <div class="col-md-6">
-                           <span class="font-weight-bold">  <i class="ti-harddrive"></i> STAFF / MANAJER </span><br>
-                            Dapat mengakses aplikasi kasir dan backend my.pawoon.com untuk melakukan manajemen data
-                          </div>
+
                         </div>
                       </div>
                         <div class="card">
@@ -50,8 +42,8 @@
                                             while ($r=mysqli_fetch_array($p)) {
                                            if ($r['level'] == 'admin') {
                                              $level = "<i class='ti-harddrive text-danger'></i> Staff";
-                                           }elseif($r['level'] == 'kasir' || $r['level'] == 'akun') {
-                                             $level = "<i class='icon-printer text-info'></i> Kasir";
+                                           }elseif($r['level'] == 'operator' || $r['level'] == 'akun') {
+                                             $level = "<i class='icon-printer text-info'></i> $r[level]";
                                            }else {
                                              $level = "<i class='ti-user text-success'></i> $r[level] ";
                                            }
@@ -130,7 +122,7 @@
                                               <select class="form-control" name="level">
                                                   <option value="">PILIH HAK AKSES</option>
                                                   <option value="admin">Admin / staff </option>
-                                                  <option value="kasir"> kasir </option>
+                                                  <option value="operator"> Operator </option>
                                               </select>
 
                                             </div>
@@ -155,3 +147,5 @@
                     </div>
                     <!-- /.modal-dialog -->
                 </div>
+
+                <script type='text/javascript'>

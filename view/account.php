@@ -16,14 +16,9 @@ echo "<div class='alert alert-success alert-dismissible fade show font-weight-bo
                     <div class="col-lg-4 col-xlg-3 col-md-5">
                         <div class="card">
                             <div class="card-body">
-                                <center class="m-t-30"> <img src="https://scontent.cdninstagram.com/vp/fe9d8d7e9e614a404ca1821d883e7155/5E4D2B18/t51.2885-15/sh0.08/e35/s640x640/61409118_125019675380847_4956097427162933611_n.jpg?_nc_ht=scontent.cdninstagram.com" class="img-circle" width="150" />
+                                <center class="m-t-30"> <img src="https://lh5.ggpht.com/-DJY7hmKSDV4/UyHo8vTBQnI/AAAAAAAAADs/b-Oip_th4yA/s1600/Mathematics-wallpaper-10187717.jpg" class="img-circle" width="150" />
                                     <h4 class="card-title m-t-10"><?php echo "$member[nama]"; ?></h4>
-                                    <h6 class="card-subtitle">STAFF / MANAJER</h6>
-                                    <p class="font-weight-light">Dapat mengakses aplikasi kasir dan backend <?php echo "$web[website]"; ?> untuk melakukan manajemen data</p>
-                                    <!-- <div class="row text-center justify-content-md-center">
-                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-people"></i> <font class="font-medium">254</font></a></div>
-                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-picture"></i> <font class="font-medium">54</font></a></div>
-                                    </div> -->
+
                                 </center>
                             </div>
                             <div>

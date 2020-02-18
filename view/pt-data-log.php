@@ -35,11 +35,11 @@
                                       $from= $_SESSION['from-pembelian'];
                                       $until= $_SESSION['until-pembelian'];
                                       if (empty($_POST)) {
-                                        $p=mysqli_query($con, "SELECT * from ima_data where tanggal='$date' ");
+                                        $p=mysqli_query($con, "SELECT * from ima_data ");
                                         echo "<p  align='right'><small class='font-weight-bold'>Data log hari ini -- ".date('D, d M Y')."</small></p>";
                                       }else {
                                         $p=mysqli_query($con, "SELECT * from ima_data where tanggal between '$from' and '$until' ");
-                                        
+
                                       }
 
                                        while ($r=mysqli_fetch_array($p)) {
