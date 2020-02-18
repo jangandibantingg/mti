@@ -1,0 +1,33 @@
+<IfModule mod_rewrite.c>
+
+RewriteEngine On
+
+RewriteRule ^([a-zA-Z0-9_-]+)\.aspx$ index.php?page=$1 [L]
+RewriteRule ^signup\.html$ control/post_signup.php?page=$1 [L]
+RewriteRule ^signin\.html$ control/post_signin.php?page=$1 [L]
+RewriteRule ^logout\.html$ control/logout.php?page=$1 [L]
+RewriteRule ^proses\.html$ control/proses.php?page=$1 [L]
+RewriteRule ^cashier\.html$ control/cashier.php?page=$1 [L]
+RewriteRule ^cashier\.html$ control/cashier.php?page=$1 [L]
+RewriteRule ^edc\.html$ control/edc.php?page=$1 [L]
+RewriteRule ^transaksi\.html$ control/transaksi.php?page=$1 [L]
+RewriteRule ^transaksi-belanja\.html$ control/transaksi-belanja.php?page=$1 [L]
+RewriteRule ^activation\.html$ control/post_activation.php?page=$1 [L]
+RewriteRule ^biaya\.html$ control/biaya.php?page=$1 [L]
+RewriteRule ^pengeluaran\.html$ control/pengeluaran.php?page=$1 [L]
+RewriteRule ^pengeluaran-dashboard\.html$ control/pengeluaran-dashboard.php?page=$1 [L]
+RewriteRule ^akun\.html$ control/akun.php?page=$1 [L]
+RewriteRule ^account\.html$ control/akun_update.php?page=$1 [L]
+RewriteRule ^toko\.html$ control/toko.php?page=$1 [L]
+RewriteRule ^sponsoring\.html$ control/sponsoring.php?page=$1 [L]
+RewriteRule ^operasional\.html$ control/operasional.php?page=$1 [L]
+RewriteRule ^tagihan\.html$ control/tagihan.php?page=$1 [L]
+RewriteRule ^data-hpp\.html$ control/data-hpp.php?page=$1 [L]
+RewriteRule ^operator\.html$ control/operator.php?page=$1 [L]
+RewriteRule ^hpp\.html$ control/hpp.php?page=$1 [L]
+RewriteRule ^modify.item\.html$ control/modify.item.php?page=$1 [L]
+RewriteRule ^ima-folder-log.html\.html$ control/ima-folder-log.php?page=$1 [L]
+
+Options All -Indexes
+
+</IfModule>
