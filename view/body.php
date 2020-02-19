@@ -75,7 +75,7 @@
                                       <div class="card">
                                         <div class="card-body">
                                           <h4 class="card-title"><i class="icon icon-grid"></i> Dalam Proses pengembangan</h4>
-                                          <p class="text-left"> © 2019  <i class="fa fa-code"></i> <a href="http://codercoffee.id/" target="_blank"> <b> <i class="icon-cup"></i> CODER Coffee</b> </a></p>
+                                          <p class="text-left"> © 2019  <i class="fa fa-code"></i> <a href="https://www.cloudflare.com/" target="_blank"> <b> <i class="icon-cup"></i> PT MITRA TEKNOLOGI IMA </b> </a></p>
 
 
 
