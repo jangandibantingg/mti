@@ -148,4 +148,4 @@
                     <!-- /.modal-dialog -->
                 </div>
 
-                <script type='text/javascript'>
+            

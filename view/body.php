@@ -35,7 +35,7 @@
     <!-- <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label"<?php echo "$web[title]"; ?></p>
+            <p class="loader__label"><?php echo "$web[title]"; ?></p>
         </div>
     </div> -->
 
@@ -105,7 +105,7 @@
 
     <script src="ajax/signup.js"></script>
     <script src="ajax/form.js"></script>
-    <script src="library/assets/node_modules/popper/popper.min.js"></script>
+    <!-- <script src="library/assets/node_modules/popper/popper.min.js"></script> -->
     <script src="library/assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="library/material/dist/js/perfect-scrollbar.jquery.min.js"></script>
@@ -127,7 +127,16 @@
     <!-- Daterange picker plugins css -->
     <link href="library/assets/node_modules/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
     <link href="library/assets/node_modules/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- jam  -->
+    <script>
+      var myVar = setInterval(myTimer, 1000);
 
+      function myTimer() {
+        var d = new Date();
+        var t = d.toLocaleTimeString();
+        document.getElementById("timer").innerHTML = t;
+      }
+    </script>
 
 
     <?php if ($page != 'penjualan' ) {?>

@@ -21,16 +21,16 @@
                    <a class="waves-effect waves-dark" href="./beranda.aspx"  aria-expanded="false"><i class="ti-dashboard"></i> <span class="hide-menu">Dashboard</span></a>
                  </li>
 
-                 <li><a  class="waves-effect waves-dark" href="./pt-data-log.aspx"><i class="ti-file"></i> Data Log</a></li>
-                 <li><a  class="waves-effect waves-dark" href="./pt-station.aspx"><i class="ti-location-pin"></i> Station</a></li>
+                 <li><a  class="waves-effect waves-dark" href="./pt-data-log.aspx"   aria-expanded="false"><i class="ti-receipt"></i> <span class="hide-menu"> Data Log</span></a></li>
+                 <li><a  class="waves-effect waves-dark" href="./pt-station.aspx"  aria-expanded="false"><i class="ti-location-pin"></i> <span class="hide-menu"> Station</span></a></li>
 
 
 
 
 
                 <li class="nav-small-cap">--- PENGATURAN</li>
-                <li><a  class="waves-effect waves-dark" href="./pt-settings.aspx"> <i class="ti-mouse"></i> Konfigurasi </a></li>
-                <li><a  class="waves-effect waves-dark" href="./karyawan.aspx"> <i class="ti-id-badge"></i> Operator </a></li>
+                <li><a  class="waves-effect waves-dark" href="./pt-settings.aspx"  aria-expanded="false"> <i class="ti-mouse"></i> <span class="hide-menu"> Konfigurasi </span></a></li>
+                <li><a  class="waves-effect waves-dark" href="./karyawan.aspx"  aria-expanded="false"> <i class="ti-id-badge"></i> <span class="hide-menu"> Operator </span></a></li>
                 <li> <a class="waves-effect waves-dark" href="./account.aspx" aria-expanded="false"><i class="ti-user"></i><span class="hide-menu">Akun</span></a></li>
 
                 <!-- <li> <a class="waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa fa-circle-o text-danger"></i><span class="hide-menu">Documentation</span></a></li> -->

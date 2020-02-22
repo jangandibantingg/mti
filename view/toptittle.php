@@ -3,7 +3,7 @@
       <?php if ($page == 'beranda'){
             echo "<span class='font-weight-bold'> Ringkasan Bisnis </span>";
             }else{
-            echo "<span class='font-weight-bold'> $page </span>";
+            echo "<span class='font-weight-bold' id='timer'>  </span>";
             }
         ?>
 

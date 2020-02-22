@@ -13,7 +13,7 @@
               <form class="form-horizontal mt-4" id="loginform" action="control/ima-folder-log.php" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                         <small>update directory folder </small>
-                        <input type="text" name="namefile" class="form-control" value="" placeholder="C:\Users\ima\maret"  webkitdirectory directory multiple>
+                        <input type="text" name="namefile" class="form-control" value="<?php echo "$log[link]"; ?>" >
                         </div>
 
                          <!-- <div class="form-group">

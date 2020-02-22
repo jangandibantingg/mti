@@ -1,6 +1,4 @@
 <?php
-
-// date_default_timezone_set('Asia/Jakarta');
 error_reporting(0);
 require_once "control/db.php";
 require_once "control/User.php";
@@ -48,9 +46,5 @@ if(!$user->isLoggedIn()){
 
 
 
-// include "view/body.php";
-// <!-- 7qAsU8vc15 -->
-//   $dbname = "codercof_app";
-//   $username = "codercof_app";
-//   $password = "aangnganjuk005";
+
 ?>
