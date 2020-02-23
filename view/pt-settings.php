@@ -168,6 +168,7 @@ doWork();
      beforeSend: function(){
       // Show image container
       $("#loader").show();
+
      },
      success: function(response){
       $('.response').empty();

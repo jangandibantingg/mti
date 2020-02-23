@@ -1,7 +1,7 @@
 <div class="row page-titles">
     <div class="col-md-5 align-self-center ">
       <?php if ($page == 'beranda'){
-            echo "<span class='font-weight-bold'> Ringkasan Bisnis </span>";
+            echo "<span class='font-weight-bold'> beranda</span>";
             }else{
             echo "<span class='font-weight-bold' id='timer'>  </span>";
             }

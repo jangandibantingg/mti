@@ -29,7 +29,7 @@
 
 </head>
 
-<body class="skin skin-megna fixed-layout">
+<body class="skin skin-red fixed-layout">
 
 
     <!-- <div class="preloader">
@@ -94,15 +94,15 @@
 
         </div>
 
-        <?php if ($page != 'penjualan') {?>
         <footer class="footer">
-            © 2019  <i class="fa fa-code"></i> <a href="https://github.com/jangandibantingg" target="_blank"> <b> <i class="icon-cup"></i> CODER Coffee</b> </a>
+            © 2020  <i class="fa fa-code"></i> <a href="" target="_blank"> <b> <i class="icon-cup"></i> PT MITRA TEKNOLOGI IMA</b> </a>
         </footer>
-      <?php } ?>
+
 
     </div>
     <script src="library/assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
-
+    <script src="ajax/notify.js"></script>
+    <script src="ajax/notify.min.js"></script>
     <script src="ajax/signup.js"></script>
     <script src="ajax/form.js"></script>
     <!-- <script src="library/assets/node_modules/popper/popper.min.js"></script> -->
@@ -118,6 +118,8 @@
     <script src="library/assets/node_modules/sparkline/jquery.sparkline.min.js"></script>
     <!--Custom JavaScript -->
     <script src="library/material/dist/js/custom.min.js"></script>
+    <script src="library/assets/node_modules/toast-master/js/jquery.toast.js"></script>
+   <script src="library/material/dist/js/pages/toastr.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script> -->
 
     <!-- Sweet-Alert  -->
@@ -128,7 +130,7 @@
     <link href="library/assets/node_modules/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
     <link href="library/assets/node_modules/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
     <!-- jam  -->
-    <script>
+    <!-- <script>
       var myVar = setInterval(myTimer, 1000);
 
       function myTimer() {
@@ -136,7 +138,7 @@
         var t = d.toLocaleTimeString();
         document.getElementById("timer").innerHTML = t;
       }
-    </script>
+    </script> -->
 
 
     <?php if ($page != 'penjualan' ) {?>
@@ -201,9 +203,9 @@
 
   <?php } ?>
 
-  <?php if ($page== 'khas' || $page == 'beranda') { ?>
+  <?php if ($page== 'khas' || $page == 'beranda' || $page  == '') { ?>
 
-    <script src="library/material/dist/js/pages/jquery.PrintArea.js" type="text/JavaScript"></script>
+        <script src="library/material/dist/js/pages/jquery.PrintArea.js" type="text/JavaScript"></script>
         <script>
         $(document).ready(function() {
             $("#print").click(function() {
@@ -216,6 +218,62 @@
                 $("div.printableArea").printArea(options);
             });
         });
+        </script>
+
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+        <script src="library/assets/node_modules/raphael/raphael-min.js"></script>
+        <script src="library/assets/node_modules/morrisjs/morris.js"></script>
+        <?php require "chart/bar-status-station.php"; ?>
+        <?php require "chart/donute-total-transfer.php"; ?>
+        <script type="text/javascript">
+$(function () {
+
+            // Morris bar chart
+            // Morris bar chart
+ Morris.Bar({
+     element: 'morris-bar-chart',
+     data: <?php echo json_encode($arr_station); ?>,
+     xkey: 'y',
+     ykeys: ['Cancelled', 'Aborted', 'Complete'],
+     labels: ['Cancelled', 'Aborted', 'Complete'],
+
+     barColors: ['#55ce63', '#414755', '#40c4ff'],
+     hideHover: 'auto',
+     gridLineColor: '#eef0f2',
+     resize: true
+ });
+
+
+ //
+
+ // Extra chart
+     Morris.Area({
+         element: 'extra-area-chart',
+         data:  <?php echo json_encode($arr_station); ?>,
+         lineColors: ['#55ce63', '#414755', '#40c4ff'],
+         xkey: 'y',
+         ykeys:  ['Cancelled', 'Aborted', 'Complete'],
+         labels:  ['Cancelled', 'Aborted', 'Complete'],
+         parseTime: false,
+         pointSize: 0,
+         lineWidth: 0,
+         resize: true,
+         fillOpacity: 0.8,
+         behaveLikeLine: true,
+         gridLineColor: '#e0e0e0',
+         hideHover: 'auto'
+
+     });
+     // donat
+     Morris.Donut({
+             element: 'morris-donut-chart',
+             data: <?php echo json_encode($arr); ?>,
+             resize: true,
+             colors: ['#40c4ff', '#55ce63', '#414755']
+         });
+
+
+ });
         </script>
 <?php } ?>
 </body>

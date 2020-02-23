@@ -1,4 +1,4 @@
-<script src="ajax/modify.pembelian.js"></script>
+
 
                     <div class="col-md-12">
 
@@ -19,6 +19,9 @@
                                         <th>ID</th>
                                         <th>Station</th>
                                         <th>Total Transfer</th>
+                                        <th>Aborted</th>
+                                        <th>Cancelled</th>
+                                        <th>Complete</th>
 
 
                                     </tr>
@@ -37,6 +40,9 @@
                                            <td>$r[id_station]</td>
                                            <td><b><a href='./?page=pt-namestation&id=$r[id_station]'>$r[nama_station]</a></b></td>
                                            <td>".totaltransfer($con, $r['id_station'])."</td>
+                                           <td>".cekstatus($con, 'Aborted', $r['id_station'])."</td>
+                                           <td>".cekstatus($con, 'Cancelled', $r['id_station'])."</td>
+                                           <td>".cekstatus($con, 'Complete', $r['id_station'])."</td>
 
                                            </tr>";
 

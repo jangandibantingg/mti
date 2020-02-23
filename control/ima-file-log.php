@@ -50,15 +50,16 @@ if ($_POST['log'])
                 }
 
             }
+            mysqli_query($con, "insert into ima_file  (filename,date) values ('$filename','$date')");
+            echo ' <script type="text/javascript"> $.notify("Access granted", "success"); </script>';
         }
 
         fclose($file_handle);
         $row++;
-        mysqli_query($con, "insert into ima_file  (filename,date) values ('$filename','$date')");
 
     }
-    echo "jumlah log terupdate $row log";
-    echo "<script type='text/javascript'> window.location.href = './pt-settings.aspx' </script>";
+    // echo "jumlah log terupdate $row log";
+    // echo "<script type='text/javascript'> window.location.href = './pt-settings.aspx' </script>";
 }
 elseif ($_POST['station']) {
   $a=mysqli_query($con, "	SELECT id_station, station_penerima from ima_data group by id_station ");
@@ -73,9 +74,11 @@ elseif ($_POST['station']) {
 
   }
   if ($no == 1) {
-    echo "update berhasil";
+    echo ' <script type="text/javascript"> $.notify("update berhasil", "success"); </script>';
+    
   }else{
-    echo "semua data station sudah terupdate";
+    echo ' <script type="text/javascript"> $.notify("semua data station sudah terupdate", "success"); </script>';
+
   }
 }
 else

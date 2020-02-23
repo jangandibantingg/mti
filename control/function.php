@@ -67,5 +67,22 @@ function totaltransfer($con,$id_station){
 	$total=$a['total'];
 	return $total;
 }
+function cekstatus($con,$status,$id_station){
+	$a=mysqli_fetch_array(mysqli_query($con, "select count(id_station) as total from ima_data where id_station='$id_station' and status='$status'"));
+	$total=$a['total'];
+	return $total;
+}
+
+function subdata($con,$status){
+	if ($status=='datalog') {
+		  $a=mysqli_fetch_array(mysqli_query($con, "select count(id_station) as total from ima_data "));
+		  $total=$a['total'];
+	}else {
+			$a=mysqli_fetch_array(mysqli_query($con, "select count(id_station) as total from ima_data where status='$status' "));
+			$total=$a['total'];
+	}
+		  return $total;
+}
+
 
  ?>
