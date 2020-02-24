@@ -27,15 +27,15 @@ while (!feof($file_handle) ) {
     $tp =" $logdatepenerima[2] $logdatepenerima[3] $logdatepenerima[4] "; //tanggal penerima
     $tanggalpenerima=date('Y/m/d', strtotime($tp));
 
-    $station_penerima=str_replace("(".$id[0].")"," ",$part3[5]);
-    $station_penerimaan=str_replace("(".$id2[0].")"," ",$part3[7]);
+    $station_pengiriman=str_replace("(".$id[0].")"," ",$part3[5]);
+    $station_penerima=str_replace("(".$id2[0].")"," ",$part3[7]);
 
     if ($part3[5] != 'Clear (-1)' && $part2[3] != null ) {
       // code...
 
       mysqli_query($con,
-      " INSERT INTO ima_data (filename, transfer, station_penerimaan, station_penerima, log_penerimaan, log_penerima, tanggal, status, id_station)
-            VALUES ('$filename','$part2[3]', '$station_penerimaan', '$station_penerima', '$part3[9]', '$logdatepenerima[0]', '$tanggalpenerima', '$part3[1]','$id[0]')");
+      " INSERT INTO ima_data (filename, transfer, station_pengiriman, station_penerima, log_penerimaan, log_penerima, tanggal, status, id_station)
+            VALUES ('$filename','$part2[3]', '$station_pengiriman', '$station_penerima', '$part3[9]', '$logdatepenerima[0]', '$tanggalpenerima', '$part3[1]','$id[0]')");
 
 
         }

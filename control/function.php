@@ -67,11 +67,26 @@ function totaltransfer($con,$id_station){
 	$total=$a['total'];
 	return $total;
 }
+// cari jumlah log station and status
 function cekstatus($con,$status,$id_station){
-	$a=mysqli_fetch_array(mysqli_query($con, "select count(id_station) as total from ima_data where id_station='$id_station' and status='$status'"));
-	$total=$a['total'];
+	if ($status == 'data') {
+		$a=mysqli_fetch_array(mysqli_query($con, "select count(id_station) as total from ima_data where id_station='$id_station'"));
+		$total=$a['total']+0;
+	}else{
+		$a=mysqli_fetch_array(mysqli_query($con, "select count(id_station) as total from ima_data where id_station='$id_station' and status='$status'"));
+		$total=$a['total'];
+	}
+
 	return $total;
 }
+
+// cek data status per station_penerima
+function status_station($con, $status, $id_station, $station_penerima){
+	$a=mysqli_fetch_array(mysqli_query($con, "select count(id_station) as total from ima_data where id_station='$id_station' and status='$status' and station_penerima='$station_penerima'"));
+	$total=$a['total']+0;
+	return $total;
+}
+
 
 function subdata($con,$status){
 	if ($status=='datalog') {
@@ -83,6 +98,21 @@ function subdata($con,$status){
 	}
 		  return $total;
 }
+
+//  cari nama station
+function namastation($con, $id_station){
+	$a=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station where id_station='$id_station' "));
+	$return=$a['nama_station'];
+	return $return;
+}
+
+// cek kolom odbc_tableprivileges
+function cekcolom($con, $table,$search, $colom, $variable){
+ $a=mysqli_fetch_array(mysqli_query($con, "select $search as search, $colom as colom from $table where $colom='$variable'  "));
+ $return="$table $colom $variable";
+ return  $a['search'];
+}
+
 
 
  ?>

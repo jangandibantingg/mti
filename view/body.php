@@ -12,15 +12,23 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="library/assets/images/favicon.png">
-    <title><?php echo "$web[title] $page"; ?></title>
+    <title>
+      <?php echo "$web[title] ";
+              if ($page == 'pt-namestation' ) {
+              echo "".namastation($con, $_GET['id'])."  Station Pengiriman";
+              }
+
+      ?></title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="library/assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" type="text/css"
+        href="library/assets/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css">
     <link href="library/material/dist/css/style.min.css" rel="stylesheet">
     <link href="library/material/dist/css/pages/floating-label.css" rel="stylesheet">
-    <link href="library/assets/node_modules/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
-    <link href="library/assets/node_modules/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
+
    <!--This page css - Morris CSS -->
     <link href="library/assets/node_modules/morrisjs/morris.css" rel="stylesheet">
    <!-- page css -->
@@ -118,36 +126,27 @@
     <script src="library/assets/node_modules/sparkline/jquery.sparkline.min.js"></script>
     <!--Custom JavaScript -->
     <script src="library/material/dist/js/custom.min.js"></script>
-    <script src="library/assets/node_modules/toast-master/js/jquery.toast.js"></script>
-   <script src="library/material/dist/js/pages/toastr.js"></script>
+    <!-- <script src="library/assets/node_modules/toast-master/js/jquery.toast.js"></script>
+   <script src="library/material/dist/js/pages/toastr.js"></script> -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script> -->
 
-    <!-- Sweet-Alert  -->
-    <script src="library/assets/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
-    <script src="library/assets/node_modules/sweetalert2/sweet-alert.init.js"></script>
-
-    <!-- Daterange picker plugins css -->
-    <link href="library/assets/node_modules/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
-    <link href="library/assets/node_modules/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-    <!-- jam  -->
-    <!-- <script>
-      var myVar = setInterval(myTimer, 1000);
-
-      function myTimer() {
-        var d = new Date();
-        var t = d.toLocaleTimeString();
-        document.getElementById("timer").innerHTML = t;
-      }
-    </script> -->
 
 
-    <?php if ($page != 'penjualan' ) {?>
 
 
+    <!--This page plugins -->
+       <script src="library/assets/node_modules/datatables.net/js/jquery.dataTables.min.js"></script>
+       <script src="library/assets/node_modules/datatables.net-bs4/js/dataTables.responsive.min.js"></script>
 
     <!-- This is data table -->
-   <script src="library/assets/node_modules/datatables.net/js/jquery.dataTables.min.js"></script>
-   <script src="library/assets/node_modules/datatables.net-bs4/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+
 
    <script>
         $(function () {
@@ -180,7 +179,7 @@
             // Order by the grouping
             $('#example tbody').on('click', 'tr.group', function () {
                 var currentOrder = table.order()[0];
-                if (currentOrder[0] === 2 && cuarrentOrder[1] === 'asc') {
+                if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
                     table.order([2, 'desc']).draw();
                 } else {
                     table.order([2, 'asc']).draw();
@@ -188,7 +187,12 @@
             });
             // responsive table
             $('#config-table').DataTable({
-                responsive: true
+                responsive: true,
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+
             });
             $('#example23').DataTable({
                 dom: 'Bfrtip',
@@ -197,11 +201,13 @@
                 ]
             });
             $('.buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel').addClass('btn btn-primary mr-1');
+
+
+
         });
 
     </script>
 
-  <?php } ?>
 
   <?php if ($page== 'khas' || $page == 'beranda' || $page  == '') { ?>
 

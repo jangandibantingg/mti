@@ -2,9 +2,14 @@
     <div class="col-md-5 align-self-center ">
       <?php if ($page == 'beranda'){
             echo "<span class='font-weight-bold'> beranda</span>";
-            }else{
-            echo "<span class='font-weight-bold' id='timer'>  </span>";
-            }
+          }elseif($page == 'pt-namestation'){
+            echo "<span class='font-weight-bold'> ".namastation($con, $_GET['id'])."  </span> <small>Station Pengiriman </small>";
+          }elseif($page == 'pt-station'){
+              echo "<span class='font-weight-bold'> Station </span> </small>";
+          }
+
+
+
         ?>
 
 

@@ -17,7 +17,7 @@
 
                                         <th>Transfer</th>
                                         <th>ID</th>
-                                        <th>Station Penerimaan</th>
+                                        <th>Station pengiriman</th>
                                         <th>Station Penerima</th>
                                         <th>Log Penerimaan</th>
                                         <th>Log Penerima</th>
@@ -46,12 +46,12 @@
 
                                      ?>
                                      <?php
-                                    
+
                                           echo "<tr>
 
                                            <td>$r[transfer]</td>
                                            <td>$r[id_station]</td>
-                                           <td>$r[station_penerimaan]</td>
+                                           <td>$r[station_pengiriman]</td>
                                            <td>$r[station_penerima]</td>
                                            <td>$r[log_penerimaan]</td>
                                            <td>$r[log_penerima]</td>

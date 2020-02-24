@@ -14,7 +14,7 @@
                                     <tr >
                                       <th>Transfer</th>
                                         <th>ID</th>
-                                        <th>Station Penerimaan</th>
+                                        <th>Station pengiriman</th>
                                         <th>Station Penerima</th>
                                         <th>Log Penerimaan</th>
                                         <th>Log Penerima</th>
@@ -27,7 +27,7 @@
                                 <tbody>
 
 <?php
-$file_handle = fopen("file:///D:/maret/transfers.20190619.log", "rb");
+$file_handle = fopen("file:///D:/maret/transfers.20191231.log", "rb");
 
 while (!feof($file_handle) ) {
     $line_of_text = fgets($file_handle);
@@ -49,8 +49,8 @@ while (!feof($file_handle) ) {
     $tp =" $logdatepenerima[2] $logdatepenerima[3] $logdatepenerima[4] "; //tanggal penerima
     $tanggalpenerima=date('Y/m/d', strtotime($tp));
 
-    $station_penerima=str_replace("(".$id[0].")"," ",$part3[5]);
-    $station_penerimaan=str_replace("(".$id2[0].")"," ",$part3[7]);
+    $station_pengiriman=str_replace("(".$id[0].")"," ",$part3[5]);
+    $station_penerima=str_replace("(".$id2[0].")"," ",$part3[7]);
 
     if ($part3[5] != 'Clear (-1)' && $part2[3] != null ) {
       // code...
@@ -58,9 +58,9 @@ while (!feof($file_handle) ) {
     echo "<tr>
 
           <td>$part2[3]</td>
-          <td>$id[0]</td>
+          <td>$id[0] </td>
+          <td>$station_pengiriman</td>
           <td>$station_penerima</td>
-          <td>$station_penerimaan</td>
           <td>$part3[9]</td>
           <td>$logdatepenerima[0]</td>
           <td>$tanggalpenerima</td>

@@ -1,62 +1,153 @@
+<?php
+  $p=mysqli_query($con, "SELECT count(station_penerima) as totaltransfer, station_pengiriman,station_penerima, id_station from ima_data where id_station='$_GET[id]' group by station_penerima  ");
+ ?>
+
 <script src="ajax/modify.pembelian.js"></script>
 
                     <div class="col-md-12">
+                          <!--  -->
+                          <div class="card-group">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="d-flex no-block align-items-center">
+                                        <div>
+                                            <h3><i class="icon-screen-desktop"></i></h3>
+                                            <small class="text-muted">TOTAL LOG</small>
+                                        </div>
+                                        <div class="ml-auto">
+                                            <h2 class="counter text-info"><?php echo number_format(cekstatus($con,'data',$_GET['id'])); ?></h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="d-flex no-block align-items-center">
+                                        <div>
+                                            <h3><i class="icon-note"></i></h3>
+                                            <small class="text-muted">COMPLETE TRANSFER</small>
+                                        </div>
+                                        <div class="ml-auto">
+                                            <h2 class="counter text-success"><?php echo number_format(cekstatus($con,'Complete',$_GET['id'])); ?></h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="d-flex no-block align-items-center">
+                                        <div>
+                                            <h3><i class="icon-doc"></i></h3>
+                                            <small class="text-muted">CANCELLED TRANSFER</small>
+                                        </div>
+                                        <div class="ml-auto">
+                                            <h2 class="counter text-primary"><?php echo number_format(cekstatus($con,'Cancelled',$_GET['id'])); ?></h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="d-flex no-block align-items-center">
+                                        <div>
+                                            <h3><i class="icon-bag"></i></h3>
+                                            <small class="text-muted">ABORTED TRANSFER</small>
+                                        </div>
+                                        <div class="ml-auto">
+                                            <h2 class="counter text-danger"><?php echo number_format(cekstatus($con,'Aborted',$_GET['id'])); ?></h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
                           <!--  -->
                           <div class="card">
                             <div class="card-header" align="right">
-
-                              <?php include 'view/form.post.php'; ?>
+                              <span class="font-weight-bold">Data Pengiriman</span>
                             </div>
                             <div class="card-body">
-                              <small>
-                              <table id="config-table" class="table display no-wrap">
+                              <small class="table-responsive m-t-40">
+                              <table id="config-table"
+                                        class="display nowrap table table-hover table-striped table-bordered"
+                                        cellspacing="0" width="100%">
                                 <thead>
                                     <tr >
 
-                                        <th>Transfer</th>
+
                                         <th>ID</th>
-                                        <th>Station Penerimaan</th>
+                                        <th>Station pengiriman</th>
                                         <th>Station Penerima</th>
-                                        <th>Log Penerimaan</th>
-                                        <th>Log Penerima</th>
-                                        <th>Tanggal</th>
-                                        <th>Status</th>
+                                        <th>Total Transfer</th>
+                                        <th>Complete</th>
+                                        <th>Canceled</th>
+                                        <th>Aborted</th>
 
 
                                     </tr>
                                 </thead>
                                   <tbody>
                                     <?php
-                                      $_SESSION['from-pembelian'] = $_POST['from'];
-                                      $_SESSION['until-pembelian'] = $_POST['until'];
-
-                                      $from= $_SESSION['from-pembelian'];
-                                      $until= $_SESSION['until-pembelian'];
-                                      if (empty($_POST)) {
-                                        $p=mysqli_query($con, "SELECT * from ima_data where id_station='$_GET[id]'  ");
-                                        echo "<p  align='right'><small class='font-weight-bold'>Data log hari ini -- ".date('D, d M Y')."</small></p>";
-                                      }else {
-                                        $p=mysqli_query($con, "SELECT * from ima_data where id_station='$_GET[id]' and tanggal between '$from' and '$until' ");
-
-                                      }
 
                                        while ($r=mysqli_fetch_array($p)) {
-
+                                        $station_penerima=$r['station_penerima'];
                                      ?>
                                      <?php
 
                                           echo "<tr>
 
-                                           <td>$r[transfer]</td>
+
                                            <td>$r[id_station]</td>
-                                           <td>$r[station_penerimaan]</td>
-                                           <td>$r[station_penerima]</td>
-                                           <td>$r[log_penerimaan]</td>
-                                           <td>$r[log_penerima]</td>
-                                           <td>$r[tanggal]</td>
-                                           <td>$r[status]</td>
+                                           <td>$r[station_pengiriman]</td>
+                                           <td><a href='./?page=pt-namestation&id=".cekcolom($con, 'ima_station','id_station','nama_station',$station_penerima)."'>$station_penerima</a></td>
+                                           <td align='right'>".number_format($r['totaltransfer'])."</td>
+                                           <td align='right'>".number_format(status_station($con,'Complete',$r['id_station'],$station_penerima ))."</td>
+                                           <td align='right'>".number_format(status_station($con,'Canceled',$r['id_station'],$station_penerima ))."</td>
+                                           <td align='right'>".number_format(status_station($con,'Aborted',$r['id_station'],$station_penerima ))."</td>
+
 
                                            </tr>";
 
@@ -71,6 +162,8 @@
                         </div>
 
                       </div>
+
+
 
 
 

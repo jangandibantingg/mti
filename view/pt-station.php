@@ -5,8 +5,8 @@
 
                           <!--  -->
                           <div class="card">
-                            <div class="card-header" >
-                              Data Station
+                            <div class="card-header" align="right" >
+                              <span class="font-weight-bold">Data Staion</span>
                               <!-- <?php include 'view/form.post.php'; ?> -->
                             </div>
                             <div class="card-body">

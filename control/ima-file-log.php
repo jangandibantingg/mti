@@ -37,14 +37,14 @@ if ($_POST['log'])
                 $tp = " $logdatepenerima[2] $logdatepenerima[3] $logdatepenerima[4] "; //tanggal penerima
                 $tanggalpenerima = date('Y/m/d', strtotime($tp));
 
-                $station_penerima = str_replace("(" . $id[0] . ")", " ", $part3[5]);
-                $station_penerimaan = str_replace("(" . $id2[0] . ")", " ", $part3[7]);
+                $station_pengiriman=str_replace("(".$id[0].")"," ",$part3[5]);
+                $station_penerima=str_replace("(".$id2[0].")"," ",$part3[7]);
 
                 if ($part3[5] != 'Clear (-1)' && $part2[3] != null)
                 {
                     // code...
-                    mysqli_query($con, " INSERT INTO ima_data (filename, transfer, station_penerimaan, station_penerima, log_penerimaan, log_penerima, tanggal, status, id_station)
-            VALUES ('$filename','$part2[3]', '$station_penerimaan', '$station_penerima', '$part3[9]', '$logdatepenerima[0]', '$tanggalpenerima', '$part3[1]','$id[0]')");
+                    mysqli_query($con, " INSERT INTO ima_data (filename, transfer, station_pengiriman, station_penerima, log_penerimaan, log_penerima, tanggal, status, id_station)
+            VALUES ('$filename','$part2[3]', '$station_pengiriman', '$station_penerima', '$part3[9]', '$logdatepenerima[0]', '$tanggalpenerima', '$part3[1]','$id[0]')");
 
 
                 }
@@ -59,14 +59,14 @@ if ($_POST['log'])
 
     }
     // echo "jumlah log terupdate $row log";
-    // echo "<script type='text/javascript'> window.location.href = './pt-settings.aspx' </script>";
+    echo "<script type='text/javascript'> window.location.href = './pt-settings.aspx' </script>";
 }
 elseif ($_POST['station']) {
-  $a=mysqli_query($con, "	SELECT id_station, station_penerima from ima_data group by id_station ");
+  $a=mysqli_query($con, "	SELECT id_station, station_pengiriman from ima_data group by id_station ");
   while ($r=mysqli_fetch_array($a)) {
     $b=mysqli_num_rows(mysqli_query($con, "select * from ima_station where id_station='$r[id_station]' "));
     if (empty($b)) {
-        mysqli_query($con, "INSERT into ima_station (id_station, nama_station) values ('$r[id_station]','$r[station_penerima]')" );
+        mysqli_query($con, "INSERT into ima_station (id_station, nama_station) values ('$r[id_station]','$r[station_pengiriman]')" );
         $no=1;
     }else{
        $no=2;
@@ -75,7 +75,7 @@ elseif ($_POST['station']) {
   }
   if ($no == 1) {
     echo ' <script type="text/javascript"> $.notify("update berhasil", "success"); </script>';
-    
+
   }else{
     echo ' <script type="text/javascript"> $.notify("semua data station sudah terupdate", "success"); </script>';
 
