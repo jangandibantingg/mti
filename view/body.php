@@ -209,7 +209,7 @@
     </script>
 
 
-  <?php if ($page== 'khas' || $page == 'beranda' || $page  == '') { ?>
+  <?php if ($page== 'pt-namestation' || $page == 'beranda' || $page  == '' ) { ?>
 
         <script src="library/material/dist/js/pages/jquery.PrintArea.js" type="text/JavaScript"></script>
         <script>
@@ -234,14 +234,14 @@
         <script type="text/javascript">
 $(function () {
 
-            // Morris bar chart
+
             // Morris bar chart
  Morris.Bar({
      element: 'morris-bar-chart',
      data: <?php echo json_encode($arr_station); ?>,
      xkey: 'y',
-     ykeys: ['Cancelled', 'Aborted', 'Complete'],
-     labels: ['Cancelled', 'Aborted', 'Complete'],
+     ykeys: ['Total Transfer'],
+     labels: ['Total Transfer'],
 
      barColors: ['#55ce63', '#414755', '#40c4ff'],
      hideHover: 'auto',
@@ -277,6 +277,8 @@ $(function () {
              resize: true,
              colors: ['#40c4ff', '#55ce63', '#414755']
          });
+
+
 
 
  });

@@ -3,6 +3,8 @@
  ?>
 
 <script src="ajax/modify.pembelian.js"></script>
+<div class="row">
+
 
                     <div class="col-md-12">
                           <!--  -->
@@ -101,10 +103,38 @@
                             </div>
                         </div>
                     </div>
+                  </div>
                 </div>
+                <!-- ==================================================================================== -->
 
+                  <div class="col-md-6">
 
+                       <div class="card ">
+                         <div class="card-header">
+                            <span class="card-title font-weight-bold">Total Pengiriman  </span>
+                         </div>
+                           <div class="card-body">
+
+                               <div id="morris-bar-chart"></div>
+                           </div>
+                         </div>
+                       </div>
+                         <div class="col-md-6">
+                       <div class="card ">
+                         <div class="card-header">
+                            <span class="card-title font-weight-bold">Total Pengiriman  </span>
+                         </div>
+                           <div class="card-body">
+
+                               <div id="morris-donut-chart"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                   <!-- ==================================================================================== -->
                           <!--  -->
+                        <div class="col-md-12 ">
+
                           <div class="card">
                             <div class="card-header" align="right">
                               <span class="font-weight-bold">Data Pengiriman</span>
@@ -121,7 +151,7 @@
                                         <th>ID</th>
                                         <th>Station pengiriman</th>
                                         <th>Station Penerima</th>
-                                        <th>Total Transfer</th>
+                                        <th>Total Pengiriman</th>
                                         <th>Complete</th>
                                         <th>Canceled</th>
                                         <th>Aborted</th>
@@ -167,4 +197,5 @@
 
 
 
-                          </div>
+                    </div>
+                  </div>

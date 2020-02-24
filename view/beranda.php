@@ -40,14 +40,7 @@
                         </div>
                     </div>
 
-          <div class="col-lg-6">
-                 <div class="card">
-                     <div class="card-body">
-                         <h4 class="card-title">Bar Status Log </h4>
-                         <div id="morris-bar-chart"></div>
-                     </div>
-                 </div>
-             </div>
+          
 
              <!--  -->
 
