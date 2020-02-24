@@ -255,7 +255,7 @@ $(function () {
  // Extra chart
      Morris.Area({
          element: 'extra-area-chart',
-         data:  <?php echo json_encode($arr_station); ?>,
+         data:  <?php echo json_encode($arr_dashboard); ?>,
          lineColors: ['#55ce63', '#414755', '#40c4ff'],
          xkey: 'y',
          ykeys:  ['Cancelled', 'Aborted', 'Complete'],

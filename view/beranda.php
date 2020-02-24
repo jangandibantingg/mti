@@ -31,19 +31,36 @@
                  </div>
              </div>
          </div>
-         <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title"> <i class="ti-receipt"></i> Total Transfer</h4>
-                                <div id="morris-donut-chart"></div>
-                            </div>
-                        </div>
-                    </div>
 
-          
 
-             <!--  -->
+
+
 
 
 
 </div>
+<div class="row">
+                    <div class="col-12 m-t-30">
+                        <h4 class="m-b-0"> <i class="ti-location-pin"></i> station </h4>
+                      <hr>
+                        <!-- <p class="text-muted m-t-0 font-12">You can quickly change the text alignment<code>.text-center .text-right</code>.</p> -->
+                    </div>
+                    <?php
+                        $p=mysqli_query($con, "SELECT * from ima_station ");
+
+                          while ($r=mysqli_fetch_array($p)) {
+
+                     ?>
+
+                    <div class="col-md-4">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h4 class="card-title"><?php echo "$r[nama_station]"; ?></h4>
+                                <p class="card-text">Total Pengiriman <?php echo totaltransfer($con, $r['id_station']); ?></p>
+                                <a href="javascript:void(0)" class="btn btn-info">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                  <?php } ?>
+</div>
+                <!-- End Row -->
