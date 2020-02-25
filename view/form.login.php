@@ -17,7 +17,7 @@
   <?php
     if(!empty($_COOKIE['email'])){
       echo '<div class="form-group m-b-0">
-            <div class="col-sm-12 text-center"><img src="https://scontent.cdninstagram.com/vp/fe9d8d7e9e614a404ca1821d883e7155/5E4D2B18/t51.2885-15/sh0.08/e35/s640x640/61409118_125019675380847_4956097427162933611_n.jpg?_nc_ht=scontent.cdninstagram.com" class="img-circle align-center" width="100" />';
+            <div class="col-sm-12 text-center"><img src="https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-512.png" class="img-circle align-center" width="100" />';
             echo "<br>$_COOKIE[nama]</div></div>";
 
             echo "<br>";
