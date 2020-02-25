@@ -136,7 +136,7 @@
                         <div class="col-md-12 ">
 
                           <div class="card">
-                            <div class="card-header" align="right">
+                            <div class="card-header" >
                               <span class="font-weight-bold">Data Pengiriman</span>
                             </div>
                             <div class="card-body">
@@ -199,3 +199,20 @@
 
                     </div>
                   </div>
+<!--
+                  <script type="text/javascript">
+                  $(document).ready(function() {
+                    $('#name-station').DataTable( {
+                        "responsive": true,
+                        "processing": true,
+                        "serverSide": true,
+                        "ajax": "server_side/name_station.php?id=<?php echo "$_GET[id]"; ?>",
+                        dom: 'Bfrtip',
+                        buttons: [
+                            'copy', 'csv', 'excel', 'pdf', 'print'
+                        ]
+                    } );
+
+                    // $.fn.dataTable.ext.errMode = 'none';
+                  } );
+                  </script> -->

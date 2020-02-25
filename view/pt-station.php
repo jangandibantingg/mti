@@ -5,20 +5,20 @@
 
                           <!--  -->
                           <div class="card">
-                            <div class="card-header" align="right" >
+                            <div class="card-header">
                               <span class="font-weight-bold">Data Staion</span>
                               <!-- <?php include 'view/form.post.php'; ?> -->
                             </div>
                             <div class="card-body">
                               <small>
-                              <table id="data-station" class="table display no-wrap">
+                              <table id="data-station" class="table display no-wrap" >
                                 <thead>
                                     <tr >
 
 
                                         <th>ID</th>
                                         <th>Station</th>
-                                        <th>Total Transfer</th>
+                                        <th >Total Transfer</th>
                                         <th>Aborted</th>
                                         <th>Cancelled</th>
                                         <th>Complete</th>
@@ -47,6 +47,8 @@
                                 "responsive": true,
                                 "processing": true,
                                 "serverSide": true,
+                                "paging" : false,
+                                "search" : true,
                                 "ajax": "server_side/data_station.php",
                                 dom: 'Bfrtip',
                                 buttons: [

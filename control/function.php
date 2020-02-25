@@ -134,5 +134,10 @@ function cekcolom($con, $table,$search, $colom, $variable){
 		}
 		return $total;
 	}
+	//
+
+
+
+
 
  ?>
