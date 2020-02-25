@@ -11,7 +11,7 @@
                             </div>
                             <div class="card-body">
                               <small>
-                              <table id="config-table" class="table display no-wrap">
+                              <table id="data-station" class="table display no-wrap">
                                 <thead>
                                     <tr >
 
@@ -27,28 +27,6 @@
                                     </tr>
                                 </thead>
                                   <tbody>
-                                    <?php
-                                        $p=mysqli_query($con, "SELECT * from ima_station ");
-
-                                          while ($r=mysqli_fetch_array($p)) {
-
-                                     ?>
-                                     <?php
-
-                                          echo "<tr>
-
-                                           <td>$r[id_station]</td>
-                                           <td><b><a href='./?page=pt-namestation&id=$r[id_station]'>$r[nama_station]</a></b></td>
-                                           <td>".totaltransfer($con, $r['id_station'])."</td>
-                                           <td>".cekstatus($con, 'Aborted', $r['id_station'])."</td>
-                                           <td>".cekstatus($con, 'Cancelled', $r['id_station'])."</td>
-                                           <td>".cekstatus($con, 'Complete', $r['id_station'])."</td>
-
-                                           </tr>";
-
-                                        }
-                                        ?>
-
 
                                   </tbody>
 
@@ -61,3 +39,21 @@
 
 
                           </div>
+
+
+                          <script type="text/javascript">
+                          $(document).ready(function() {
+                            $('#data-station').DataTable( {
+                                "responsive": true,
+                                "processing": true,
+                                "serverSide": true,
+                                "ajax": "server_side/data_station.php",
+                                dom: 'Bfrtip',
+                                buttons: [
+                                    'copy', 'csv', 'excel', 'pdf', 'print'
+                                ]
+                            } );
+
+                            // $.fn.dataTable.ext.errMode = 'none';
+                          } );
+                          </script>

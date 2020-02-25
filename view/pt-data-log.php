@@ -27,22 +27,9 @@
 
                                     </tr>
                                 </thead>
-                                  <tfoot>
-                                    <tr>
+                                  <tbody>
 
-                                        <th>Transfer</th>
-                                        <th>ID</th>
-                                        <th>Station pengiriman</th>
-                                        <th>Station Penerima</th>
-                                        <th>Log Penerimaan</th>
-                                        <th>Log Penerima</th>
-                                        <th>Tanggal</th>
-                                        <th>Status</th>
-
-
-                                    </tr>
-
-                                  </tfoot>
+                                  </tbody>
 
                               </table>
                               </small>
@@ -57,7 +44,7 @@
 $(document).ready(function() {
   $('#example').DataTable( {
       "responsive": true,
-      "processing": false,
+      "processing": true,
       "serverSide": true,
       "ajax": "server_side/datalog.php"
   } );

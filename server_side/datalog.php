@@ -1,30 +1,9 @@
 <?php
-$sql_details = array(
-	'user' => 'root',
-	'pass' => '',
-	'db'   => 'ima',
-	'host' => 'localhost'
-);
-/*
- * DataTables example server-side processing script.
- *
- * Please note that this script is intentionally extremely simple to show how
- * server-side processing can be implemented, and probably shouldn't be used as
- * the basis for a large complex system. It is suitable for simple use cases as
- * for learning.
- *
- * See http://datatables.net/usage/server-side for full details on the server-
- * side processing requirements of DataTables.
- *
- * @license MIT - http://datatables.net/license_mit
- */
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Easy set variables
- */
+include '../control/connect.php';
+include '../control/function.php';
 
 // DB table to use
-$table = 'ima_data';
+$table ='ima_data';
 
 // Table's primary key
 $primaryKey = 'id_data';
@@ -35,7 +14,7 @@ $primaryKey = 'id_data';
 // indexes
 $columns = array(
     array( 'db' => 'transfer', 'dt' => 0 ),
-    array( 'db' => 'id_data',  'dt' => 1 ),
+    array( 'db' => 'id_station',  'dt' => 1 ),
     array( 'db' => 'station_pengiriman',   'dt' => 2 ),
     array( 'db' => 'station_penerima',     'dt' => 3 ),
     array( 'db' => 'log_penerimaan',     'dt' => 4 ),
@@ -45,13 +24,6 @@ $columns = array(
 
 );
 
-// SQL server connection information
-$sql_details = array(
-	'user' => 'root',
-	'pass' => '',
-	'db'   => 'ima',
-	'host' => 'localhost'
-);
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -62,5 +34,7 @@ $sql_details = array(
 require( 'ssp.class.php' );
 
 echo json_encode(
-    SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns )
-);
+   SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns )
+)
+
+?>

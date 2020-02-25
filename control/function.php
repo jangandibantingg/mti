@@ -1,7 +1,7 @@
 <?php
-// make with love </> M AANG SYAIFUN NAJA
-include 'connect.php';
-// tanggal indo
+
+
+
 function tanggal_indo($tanggal)
 {
 	$bulan = array (1 =>   'Januari',
@@ -20,6 +20,8 @@ function tanggal_indo($tanggal)
 	$split = explode('-', $tanggal);
 	return $split[2] . ' ' . $bulan[ (int)$split[1] ] . ' ' . $split[0];
 }
+
+
 //hitung posingan
 
 function getFileList($dir)
@@ -57,18 +59,24 @@ function getFileList($dir)
 		return $retval;
 }
 
+// cek data status per station_penerima===============================================================================
 function sublog($con,$filename){
 	$a=mysqli_num_rows(mysqli_query($con, "select filename from ima_data where filename='$filename'"));
 	return $a+0;
 }
 
+// cek data status per station_penerima===============================================================================
 function totaltransfer($con,$id_station){
 	$a=mysqli_fetch_array(mysqli_query($con, "select count(id_station) as total from ima_data where id_station='$id_station' "));
 	$total=$a['total'];
 	return $total;
 }
 // cari jumlah log station and status
+
+
+// cek data status per station_penerima===============================================================================
 function cekstatus($con,$status,$id_station){
+
 	if ($status == 'data') {
 		$a=mysqli_fetch_array(mysqli_query($con, "select count(id_station) as total from ima_data where id_station='$id_station'"));
 		$total=$a['total']+0;
@@ -76,15 +84,14 @@ function cekstatus($con,$status,$id_station){
 		$a=mysqli_fetch_array(mysqli_query($con, "select count(id_station) as total from ima_data where id_station='$id_station' and status='$status'"));
 		$total=$a['total'];
 	}
-
 	return $total;
 }
 
-// cek data status per station_penerima
+// cek data status per station_penerima===============================================================================
 function status_station($con, $status, $id_station, $station_penerima){
 	$a=mysqli_fetch_array(mysqli_query($con, "select count(id_station) as total from ima_data where id_station='$id_station' and status='$status' and station_penerima='$station_penerima'"));
 	$total=$a['total']+0;
-	return $total;
+	return "$total";
 }
 
 
@@ -114,5 +121,18 @@ function cekcolom($con, $table,$search, $colom, $variable){
 }
 
 
+
+// server side ==========================================================================================================================================================
+	function ss_cekstatus($status,$id_station){
+		include 'connect.php';
+		if ($status == 'data') {
+			$a=mysqli_fetch_array(mysqli_query($con, "select count(id_station) as total from ima_data where id_station='$id_station'"));
+			$total=$a['total']+0;
+		}else{
+			$a=mysqli_fetch_array(mysqli_query($con, "select count(id_station) as total from ima_data where id_station='$id_station' and status='$status'"));
+			$total=$a['total'];
+		}
+		return $total;
+	}
 
  ?>
