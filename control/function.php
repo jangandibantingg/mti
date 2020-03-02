@@ -61,40 +61,45 @@ function getFileList($dir)
 
 // cek data status per station_penerima===============================================================================
 function sublog($con,$filename){
-	$a=mysqli_num_rows(mysqli_query($con, "select filename from ima_data where filename='$filename'"));
+	$a=mysqli_num_rows(mysqli_query($con, "SELECT filename from ima_data where filename='$filename'"));
 	return $a+0;
 }
 
 // cek data status per station_penerima===============================================================================
-function totaltransfer($con,$id_station){
-	$a=mysqli_fetch_array(mysqli_query($con, "select count(id_station) as total from ima_data where id_station='$id_station' "));
+function totaltransfer($con,$id_station,$from,$until){
+	$a=mysqli_fetch_array(mysqli_query($con, "SELECT count(id_station) as total from ima_data where id_station='$id_station' and tanggal between '$from' and '$until'"));
 	$total=$a['total'];
 	return $total;
 }
-function totalpenerimaan($con,$nama_station){
-	$a=mysqli_fetch_array(mysqli_query($con, "select count(station_penerima) as total from ima_data where station_penerima='$nama_station' "));
+function totalpenerimaan($con,$nama_station,$from,$until){
+	$a=mysqli_fetch_array(mysqli_query($con, "SELECT count(station_penerima) as total from ima_data where station_penerima='$nama_station' and tanggal between '$from' and '$until'  "));
 	$total=$a['total'];
 	return $total;
+}
+function totalpenerimaanstation($con,$pengirim,$penerima,$from,$until){
+$a=mysqli_fetch_array(mysqli_query($con, "SELECT count(station_penerima) as total from ima_data where station_penerima='$penerima' and station_pengiriman='$pengirim' and tanggal between '$from' and '$until'  "));
+$total=$a['total'];
+return $total;
 }
 // cari jumlah log station and status
 
 
 // cek data status per station_penerima===============================================================================
-function cekstatus($con,$status,$id_station){
+function cekstatus($con,$status,$id_station, $from, $until){
 
 	if ($status == 'data') {
-		$a=mysqli_fetch_array(mysqli_query($con, "select count(id_station) as total from ima_data where id_station='$id_station'"));
+		$a=mysqli_fetch_array(mysqli_query($con, "SELECT count(id_station) as total from ima_data where id_station='$id_station' and tanggal between '$from' and '$until'  "));
 		$total=$a['total']+0;
 	}else{
-		$a=mysqli_fetch_array(mysqli_query($con, "select count(id_station) as total from ima_data where id_station='$id_station' and status='$status'"));
+		$a=mysqli_fetch_array(mysqli_query($con, "SELECT count(id_station) as total from ima_data where id_station='$id_station' and status='$status' and tanggal between '$from' and '$until' "));
 		$total=$a['total'];
 	}
 	return $total;
 }
 
 // cek data status per station_penerima===============================================================================
-function status_station($con, $status, $id_station, $station_penerima){
-	$a=mysqli_fetch_array(mysqli_query($con, "select count(id_station) as total from ima_data where id_station='$id_station' and status='$status' and station_penerima='$station_penerima'"));
+function status_station($con, $status, $id_station, $station_penerima,$from, $until){
+	$a=mysqli_fetch_array(mysqli_query($con, "select count(id_station) as total from ima_data where id_station='$id_station' and status='$status' and station_penerima='$station_penerima' and tanggal between '$from' and '$until'"));
 	$total=$a['total']+0;
 	return "$total";
 }

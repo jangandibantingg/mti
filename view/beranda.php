@@ -41,7 +41,8 @@
 </div>
 <div class="row">
                     <div class="col-12 m-t-30">
-                        <h4 class="m-b-0"> <i class="ti-location-pin"></i> station </h4>
+                        <h4 class="m-b-0"><i class="ti-location-pin"></i> station</h4>
+                        <p class="text-right"> <?php include 'view/form.post.php'; ?>   </p>
                       <hr>
                         <!-- <p class="text-muted m-t-0 font-12">You can quickly change the text alignment<code>.text-center .text-right</code>.</p> -->
                     </div>
@@ -56,9 +57,9 @@
                         <div class="card text-center">
                             <div class="card-body">
                                 <h4 class="card-title"><?php echo "$r[nama_station]"; ?></h4>
-                                <small class="card-text font-weight-light ">Total Pengiriman <?php echo number_format(totaltransfer($con, $r['id_station'])); ?></small><br>
-                                <small class="card-text font-weight-light">Total Penerimaan <?php echo number_format(totalpenerimaan($con, $r['nama_station'])); ?></small><br>
-                                <a href="<?php echo "./?page=pt-namestation&id=$r[id_station]"; ?>" class="btn btn-info">Details</a>
+                                <small class="card-text font-weight-light ">Total Pengiriman <?php echo number_format(totaltransfer($con, $r['id_station'],$from,$until)); ?></small><br>
+                                <small class="card-text font-weight-light">Total Penerimaan <?php echo number_format(totalpenerimaan($con, $r['nama_station'],$from,$until)); ?></small><br>
+                                <a href="<?php echo "./?page=pt-namestation&id=$r[id_station]&from=$from&until=$until"; ?>" class="btn btn-info">Details</a>
                             </div>
                         </div>
                     </div>
