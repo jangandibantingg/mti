@@ -13,8 +13,8 @@
                          ?>
                           <!--  -->
                           <p class="text-center">
-                            <a href="#" class="btn btn-info "><i class="ti-printer"></i> Cetak</a>
-                            <a href="#" class="btn btn-success "><i class="mdi mdi-file-excel"></i> Export to Excel</a>
+                            <a target="_blank" href="./print/data-station.php?<?php echo "from=$from&until=$until"; ?>" class="btn btn-info "><i class="ti-printer"></i> Cetak</a>
+                            <a target="_blank" href="./print/excel-data-station.php?<?php echo "from=$from&until=$until"; ?>" class="btn btn-success "><i class="mdi mdi-file-excel"></i> Export to Excel</a>
                           </p>
 
                           <br>

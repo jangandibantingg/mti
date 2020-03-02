@@ -1,7 +1,21 @@
 
 
                     <div class="col-md-12">
+                      <h3 class="text-center font-weight-bold"> PT MITRA TEKNOLOGI IMA</h3>
+                      <H4 class="text-center font-weight-normal"> DATALOG LAPORAN PEMELIHARAAN PTS RSKD</h4>
 
+                        <?php
+                        if (!empty($_POST)) {
+                          echo '<H5 class="text-center font-weight-normal"> '.tanggal_indo($from).' / '.tanggal_indo($until).' </h5>';
+                        }else{
+                          echo '<H5 class="text-center font-weight-normal"> '.tanggal_indo($date).' </h5>';
+                        }
+                         ?>
+                          <!--  -->
+                          <p class="text-center">
+                            <a target="_blank" href="./print/data-log.php?<?php echo "from=$from&until=$until"; ?>" class="btn btn-info "><i class="ti-printer"></i> Cetak</a>
+                            <a target="_blank" href="./print/excel-data-log.php?<?php echo "from=$from&until=$until"; ?>" class="btn btn-success "><i class="mdi mdi-file-excel"></i> Export to Excel</a>
+                          </p>
 
                           <!--  -->
                           <div class="card">

@@ -156,19 +156,20 @@
                 </div>
                 <!-- ==================================================================================== -->
 
-                  <div class="col-md-6">
+                    <div class="col-md-12">
 
                        <div class="card ">
                          <div class="card-header">
-                            <span class="card-title font-weight-bold">Total Pengiriman  </span>
+                            <span class="card-title font-weight-bold">Total Pengiriman dan penerimaan  </span>
                          </div>
                            <div class="card-body">
 
                                <div id="morris-bar-chart"></div>
+                               
                            </div>
                          </div>
                        </div>
-                         <div class="col-md-6">
+                         <!-- <div class="col-md-6">
                        <div class="card ">
                          <div class="card-header">
                             <span class="card-title font-weight-bold">Total Pengiriman  </span>
@@ -178,7 +179,7 @@
                                <div id="morris-donut-chart"></div>
                            </div>
                        </div>
-                   </div>
+                   </div> -->
 
                    <!-- ==================================================================================== -->
                           <!--  -->
@@ -200,7 +201,7 @@
                                         <th>ID</th>
                                         <th>Station pengiriman</th>
                                         <th>Total</th>
-                                        <th>Station Penerima</th>
+                                        <th>Station Penerimaan</th>
                                         <th>Total</th>
                                         <th>Complete</th>
                                         <th>Canceled</th>

@@ -169,7 +169,7 @@
         <script src="library/assets/node_modules/raphael/raphael-min.js"></script>
         <script src="library/assets/node_modules/morrisjs/morris.js"></script>
         <?php require "chart/bar-status-station.php"; ?>
-        <?php require "chart/donute-total-transfer.php"; ?>
+        <!-- <?php require "chart/donute-total-transfer.php"; ?> -->
         <script type="text/javascript">
 $(function () {
 
@@ -182,7 +182,7 @@ $(function () {
      ykeys: ['Total Pengiriman','Total Penerimaan'],
      labels: ['Total Pengiriman','Penerimaan'],
 
-     barColors: ['#55ce63', '#414755', '#40c4ff'],
+     barColors: ['#58D68D', '#EC7063'],
      hideHover: 'auto',
      gridLineColor: '#eef0f2',
      resize: true
@@ -210,13 +210,6 @@ $(function () {
 
      });
      // donat
-     Morris.Donut({
-             element: 'morris-donut-chart',
-             data: <?php echo json_encode($arr); ?>,
-             resize: true,
-             colors: ['#40c4ff', '#55ce63', '#414755']
-         });
-
 
 
 
