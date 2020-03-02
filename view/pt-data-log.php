@@ -1,4 +1,4 @@
-
+<?php echo "$_GET[from]"; ?>
 
                     <div class="col-md-12">
 
@@ -46,7 +46,7 @@ $(document).ready(function() {
       "responsive": true,
       "processing": true,
       "serverSide": true,
-      "ajax": "server_side/datalog.php"
+      "ajax": "server_side/datalog.php?start="
   } );
 
   $.fn.dataTable.ext.errMode = 'none';

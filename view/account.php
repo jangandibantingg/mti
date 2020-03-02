@@ -16,7 +16,7 @@ echo "<div class='alert alert-success alert-dismissible fade show font-weight-bo
                     <div class="col-lg-4 col-xlg-3 col-md-5">
                         <div class="card">
                             <div class="card-body">
-                                <center class="m-t-30"> <img src="https://lh5.ggpht.com/-DJY7hmKSDV4/UyHo8vTBQnI/AAAAAAAAADs/b-Oip_th4yA/s1600/Mathematics-wallpaper-10187717.jpg" class="img-circle" width="150" />
+                                <center class="m-t-30"> <img src="https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-512.png" class="img-circle" width="150" />
                                     <h4 class="card-title m-t-10"><?php echo "$member[nama]"; ?></h4>
 
                                 </center>

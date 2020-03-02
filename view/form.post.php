@@ -1,7 +1,7 @@
 <form class="" action="" method="post">
 <table>
   <tbody>
-  
+
     <tr>
       <td class="co-3"> <input type="date" name="from" class="form-control" value="<?php echo "$date"; ?>" size="10"></td>
       <td class="co-1"> <i class="ti-control-skip-forward"></i> </td>

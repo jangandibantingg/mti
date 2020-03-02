@@ -56,7 +56,8 @@
                         <div class="card text-center">
                             <div class="card-body">
                                 <h4 class="card-title"><?php echo "$r[nama_station]"; ?></h4>
-                                <p class="card-text">Total Pengiriman <?php echo totaltransfer($con, $r['id_station']); ?></p>
+                                <small class="card-text font-weight-light ">Total Pengiriman <?php echo number_format(totaltransfer($con, $r['id_station'])); ?></small><br>
+                                <small class="card-text font-weight-light">Total Penerimaan <?php echo number_format(totalpenerimaan($con, $r['nama_station'])); ?></small><br>
                                 <a href="<?php echo "./?page=pt-namestation&id=$r[id_station]"; ?>" class="btn btn-info">Details</a>
                             </div>
                         </div>

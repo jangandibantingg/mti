@@ -179,8 +179,8 @@ $(function () {
      element: 'morris-bar-chart',
      data: <?php echo json_encode($arr_station); ?>,
      xkey: 'y',
-     ykeys: ['Total Transfer'],
-     labels: ['Total Transfer'],
+     ykeys: ['Total Pengiriman','Total Penerimaan'],
+     labels: ['Total Pengiriman','Penerimaan'],
 
      barColors: ['#55ce63', '#414755', '#40c4ff'],
      hideHover: 'auto',

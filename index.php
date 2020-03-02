@@ -1,9 +1,9 @@
 <?php
-error_reporting(0);
+// error_reporting(0);
 require_once "control/db.php";
 require_once "control/User.php";
 require_once "control/connect.php";
-require_once "control/uploadfile.php";
+// require_once "control/uploadfile.php";
 require_once "control/function.php";
 require_once "control/get_mobile.php";
 

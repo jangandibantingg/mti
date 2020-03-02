@@ -13,9 +13,9 @@ $primaryKey = 'id_data';
 // parameter represents the DataTables column identifier. In this case simple
 // indexes
 $columns = array(
-    array( 'db' => 'transfer', 'dt' => 0 ),
-    array( 'db' => 'id_station',  'dt' => 1 ),
-    array( 'db' => 'station_pengiriman',   'dt' => 2 ),
+    array( 'db' => 'id_station', 'dt' => 0 ),
+    array( 'db' => 'station_pengiriman',  'dt' => 1 ),
+    array( 'db' => 'station_penerima',   'dt' => 2 ),
     array( 'db' => 'station_penerima',     'dt' => 3 ),
     array( 'db' => 'log_penerimaan',     'dt' => 4 ),
     array( 'db' => 'log_penerima',     'dt' => 5 ),

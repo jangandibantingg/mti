@@ -40,7 +40,7 @@
                                     <div class="d-flex no-block align-items-center">
                                         <div>
                                             <h3><i class="icon-note"></i></h3>
-                                            <small class="text-muted">COMPLETE TRANSFER</small>
+                                            <small class="text-muted">PENGIRIMAN</small>
                                         </div>
                                         <div class="ml-auto">
                                             <h2 class="counter text-success"><?php echo number_format(cekstatus($con,'Complete',$_GET['id'])); ?></h2>
@@ -50,6 +50,28 @@
                                 <div class="col-12">
                                     <div class="progress">
                                         <div class="progress-bar bg-success" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="d-flex no-block align-items-center">
+                                        <div>
+                                            <h3><i class="icon-note"></i></h3>
+                                            <small class="text-muted">PENERIMAAN</small>
+                                        </div>
+                                        <div class="ml-auto">
+                                            <h2 class="counter text-cyan"><?php echo number_format(cekstatus($con,'Complete',$_GET['id'])); ?></h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-cyan" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                             </div>
@@ -141,7 +163,7 @@
                             </div>
                             <div class="card-body">
                               <small class="table-responsive m-t-40">
-                              <table id="config-table"
+                              <table id="name-station"
                                         class="display nowrap table table-hover table-striped table-bordered"
                                         cellspacing="0" width="100%">
                                 <thead>
@@ -199,8 +221,8 @@
 
                     </div>
                   </div>
-<!--
-                  <script type="text/javascript">
+
+                  <!-- <script type="text/javascript">
                   $(document).ready(function() {
                     $('#name-station').DataTable( {
                         "responsive": true,

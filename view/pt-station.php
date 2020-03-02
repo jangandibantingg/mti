@@ -47,13 +47,11 @@
                                 "responsive": true,
                                 "processing": true,
                                 "serverSide": true,
-                                "paging" : false,
+                                "paging" : true,
                                 "search" : true,
-                                "ajax": "server_side/data_station.php",
-                                dom: 'Bfrtip',
-                                buttons: [
-                                    'copy', 'csv', 'excel', 'pdf', 'print'
-                                ]
+                                "ajax": "server_side/data_station.php"
+
+
                             } );
 
                             // $.fn.dataTable.ext.errMode = 'none';

@@ -71,6 +71,11 @@ function totaltransfer($con,$id_station){
 	$total=$a['total'];
 	return $total;
 }
+function totalpenerimaan($con,$nama_station){
+	$a=mysqli_fetch_array(mysqli_query($con, "select count(station_penerima) as total from ima_data where station_penerima='$nama_station' "));
+	$total=$a['total'];
+	return $total;
+}
 // cari jumlah log station and status
 
 

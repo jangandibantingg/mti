@@ -36,12 +36,7 @@ $(function () {
     });
     // responsive table
     $('#config-table').DataTable({
-        responsive: true,
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-
+        responsive: true
     });
 
 
