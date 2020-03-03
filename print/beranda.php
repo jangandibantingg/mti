@@ -92,7 +92,7 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
                                   <h4 class="card-title"><?php echo "$r[nama_station]"; ?></h4>
                                   <small class="card-text font-weight-light ">Total Pengiriman <?php echo number_format(totaltransfer($con, $r['id_station'],$from,$until)); ?></small><br>
                                   <small class="card-text font-weight-light">Total Penerimaan <?php echo number_format(totalpenerimaan($con, $r['nama_station'],$from,$until)); ?></small><br>
-                                  <a href="<?php echo "./?page=pt-namestation&id=$r[id_station]&from=$from&until=$until"; ?>" class="btn btn-info">Details</a>
+                                  <!-- <a href="<?php echo "./?page=pt-namestation&id=$r[id_station]&from=$from&until=$until"; ?>" class="btn btn-info">Details</a> -->
                               </div>
                           </div>
                       </div>
