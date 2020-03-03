@@ -5,7 +5,7 @@
   $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station where id_station='$_GET[id]'"));
  ?>
 
-<script src="ajax/modify.pembelian.js"></script>
+
 <div class="row">
 
 

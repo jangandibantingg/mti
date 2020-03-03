@@ -5,13 +5,14 @@
              <div class="card">
                <div class="card-header" align="right">
                  <?php include 'view/form.post.php'; ?>
+
                </div>
                  <div class="card-body">
 
-                  
+
                    <div class="row">
                          <div class="col-lg-3 col-md-6 m-b-30 text-center"> <small> Data Log</small>
-                             <h2><i class="ti-arrow-up text-info"></i> <?php echo "".number_format(subdata($con,'datalog',$from,$until)).""; ?></h2>
+                             <h2><i class="ti-arrows-horizontal text-info"></i> <?php echo "".number_format(subdata($con,'datalog',$from,$until)).""; ?></h2>
                              <div id="sparklinedash"></div>
                          </div>
                          <div class="col-lg-3 col-md-6 m-b-30 text-center"> <small> Complete Transfer</small>
@@ -19,7 +20,7 @@
                              <div id="sparklinedash2"></div>
                          </div>
                          <div class="col-lg-3 col-md-6 m-b-30 text-center"> <small> Cancelled Transfer</small>
-                             <h2><i class="ti-arrow-up text-primary"></i> <?php echo "".number_format(subdata($con,'Cancelled',$from,$until)).""; ?></h2>
+                             <h2><i class="ti-arrow-left text-primary"></i> <?php echo "".number_format(subdata($con,'Cancelled',$from,$until)).""; ?></h2>
                              <div id="sparklinedash3"></div>
                          </div>
                          <div class="col-lg-3 col-md-6 m-b-30 text-center"> <small> Aborted Transfer</small>
