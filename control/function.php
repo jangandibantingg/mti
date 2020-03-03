@@ -105,12 +105,12 @@ function status_station($con, $status, $id_station, $station_penerima,$from, $un
 }
 
 
-function subdata($con,$status){
+function subdata($con,$status,$from,$until){
 	if ($status=='datalog') {
-		  $a=mysqli_fetch_array(mysqli_query($con, "select count(id_station) as total from ima_data "));
+		  $a=mysqli_fetch_array(mysqli_query($con, "select count(id_station) as total from ima_data where tanggal between '$from' and '$until'"));
 		  $total=$a['total'];
 	}else {
-			$a=mysqli_fetch_array(mysqli_query($con, "select count(id_station) as total from ima_data where status='$status' "));
+			$a=mysqli_fetch_array(mysqli_query($con, "select count(id_station) as total from ima_data where status='$status' and tanggal between '$from' and '$until'"));
 			$total=$a['total'];
 	}
 		  return $total;

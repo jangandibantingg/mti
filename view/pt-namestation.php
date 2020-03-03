@@ -10,6 +10,7 @@
 
 
                     <div class="col-md-12">
+
                           <!--  -->
                           <div class="card-group">
                     <div class="card">
@@ -165,7 +166,7 @@
                            <div class="card-body">
 
                                <div id="morris-bar-chart"></div>
-                               
+
                            </div>
                          </div>
                        </div>
@@ -184,10 +185,22 @@
                    <!-- ==================================================================================== -->
                           <!--  -->
                         <div class="col-md-12 ">
-
+                          <hr>
+                          <H4 class="text-center font-weight-normal"> HASIL LAPORAN DATA STATION PENGIRIM DAN PENERIMAAN  PEMELIHARAAN PTS RSKD</h4>
+                            <?php
+                            if (!empty($_POST)) {
+                              echo '<H5 class="text-center font-weight-normal"> '.tanggal_indo($from).' / '.tanggal_indo($until).' </h5>';
+                            }else{
+                              echo '<H5 class="text-center font-weight-normal"> '.tanggal_indo($date).' </h5>';
+                            }
+                             ?>
+                             <p class="text-center">
+                               <a target="_blank" href="./print/nama-station.php?<?php echo "id=$_GET[id]&from=$from&until=$until"; ?>" class="btn btn-info "><i class="ti-printer"></i> Cetak</a>
+                               <a target="_blank" href="./print/excel-nama-station.php?<?php echo "id=$_GET[id]&from=$from&until=$until"; ?>" class="btn btn-success "><i class="mdi mdi-file-excel"></i> Export to Excel</a>
+                             </p>
                           <div class="card">
-                            <div class="card-header" >
-                              <span class="font-weight-bold">Data Pengiriman</span>
+                            <div class="card-header" align="right">
+                              <?php include 'view/form.post.php'; ?>
                             </div>
                             <div class="card-body">
                               <small class="table-responsive m-t-40">

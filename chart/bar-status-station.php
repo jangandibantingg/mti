@@ -14,12 +14,11 @@
 
 
   $arr_dashboard=array();
-  $b=mysqli_query($con, "SELECT count(station_penerima) as totaltransfer, station_pengiriman,station_penerima, id_station from ima_data   group by station_penerima  ");
+  $b=mysqli_query($con, "SELECT count(station_pengiriman) as totaltransfer, station_pengiriman,station_penerima, id_station from ima_data  where tanggal between '$from' and '$until' group by station_pengiriman  ");
     while ($r=mysqli_fetch_array($b)) {
-      $canceled=cekstatus($con,'Cancelled',$r['id_station'],$from,$until );
-      $aborted=cekstatus($con,'Aborted',$r['id_station'] ,$from,$until);
-      $complete=cekstatus($con,'Complete',$r['id_station'] ,$from,$until);
-     array_push($arr_dashboard, array('y' => $r['station_penerima'], 'Cancelled' => $canceled, 'Aborted' => $aborted, 'Complete' => $complete ));
+      $totalpenerimaan=totalpenerimaan($con,$r['station_pengiriman'],$from,$until );
+
+     array_push($arr_dashboard, array('station' => $r['station_pengiriman'], 'Total Pengiriman' => $r['totaltransfer'], 'Total Penerimaan' => $totalpenerimaan ));
   }
 
  ?>

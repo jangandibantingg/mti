@@ -181,7 +181,6 @@ $(function () {
      xkey: 'y',
      ykeys: ['Total Pengiriman','Total Penerimaan'],
      labels: ['Total Pengiriman','Penerimaan'],
-
      barColors: ['#58D68D', '#EC7063'],
      hideHover: 'auto',
      gridLineColor: '#eef0f2',
@@ -192,21 +191,18 @@ $(function () {
  //
 
  // Extra chart
-     Morris.Area({
-         element: 'extra-area-chart',
+     Morris.Bar({
+         element: 'morris-bar-chart-dashboard',
          data:  <?php echo json_encode($arr_dashboard); ?>,
-         lineColors: ['#55ce63', '#414755', '#40c4ff'],
-         xkey: 'y',
-         ykeys:  ['Cancelled', 'Aborted', 'Complete'],
-         labels:  ['Cancelled', 'Aborted', 'Complete'],
-         parseTime: false,
-         pointSize: 0,
-         lineWidth: 0,
-         resize: true,
-         fillOpacity: 0.8,
-         behaveLikeLine: true,
-         gridLineColor: '#e0e0e0',
-         hideHover: 'auto'
+         lineColors: ['#58D68D', '#EC7063'],
+         ykeys:  ['Total Pengiriman','Total Penerimaan'],
+         labels:  ['Total Pengiriman','Total Penerimaan'],
+         barColors: ['#58D68D', '#EC7063'],
+         hideHover: 'auto',
+         gridLineColor: '#eef0f2',
+         xkey: 'station',
+         xLabelMargin :15,
+         xmax: 20,
 
      });
      // donat
