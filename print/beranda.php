@@ -108,8 +108,8 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
 							 <td>$no</td>
 							 <td>$r[nama_station]</td>
 							 <td>".cekstatus($con,'data', $r['id_station'], $from, $until)."</td>
-							 <td>".cekstatus($con, 'Aborted', $r['id_station'], $from, $until)."</td>
-							  <td>".cekstatus($con, 'Complete', $r['id_station'], $from, $until)."</td>
+							 <td>".totalpenerimaan($con, $r['nama_station'], $from, $until)."</td>
+							  <td></td>
 					 </tr>";
            $no++;
 				 }
