@@ -44,9 +44,9 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
 
 	  	if (!empty($from)) {
 
-	  		echo ' <H6 class="text-right font-weight-bold">Periode : &nbsp'.tanggal_indo($from).' </h6>';
+	  		echo ' <H6 class="text-right font-weight-bold">Periode : &nbsp'.date('F Y').' </h6>';
 	  	}else{
-	  		echo '<H6 class="text-right font-weight-bold"> '.tanggal_indo($date).' </h6>';
+	  		echo '<H6 class="text-right font-weight-bold"> '.date($date).' </h6>';
 	  	}
 	  	 ?>
 	</center>
