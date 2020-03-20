@@ -1,4 +1,3 @@
-
 <?php
 include '../control/connect.php';
 include '../control/function.php';
@@ -31,7 +30,7 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
 	<div align="center"></div>
 	<center>
 	<H6 class="text-right font-weight-bold"> PT MITRA TEKNOLOGI IMA</h6>
-	<H4 class="text-center font-weight-bold"> REKAPITULASI</h4>
+	<H3 class="text-center font-weight-bold"> REKAPITULASI</h3>
     <H4 class="text-center font-weight-bold"> PENGGUNAAN &nbsp PNEUMATIC TUBE SYSTEM / PTS</h4>
 	<H4 class="text-center font-weight-bold"> PADA MASING - MASING USER</h4>
 	<H4 class="text-center font-weight-bold"> RS KANKER DHARMAIS</h4>
@@ -44,9 +43,11 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
 
 	  	if (!empty($from)) {
 
-	  		echo ' <H6 class="text-right font-weight-bold">Periode : &nbsp'.date('F Y').' </h6>';
-	  	}else{
-	  		echo '<H6 class="text-right font-weight-bold"> '.date($date).' </h6>';
+
+
+echo("<div align='right' class='font-weight-bold'>Periode : ".date('F Y')."</right>");
+
+
 	  	}
 	  	 ?>
 	</center>
@@ -55,27 +56,7 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
   <div class="col-md-18">
 
         <!--  -->
-        <div class="card-body">
 
-
-          <div class="row">
-                <div class="col-lg-3 col-md-6 m-b-10 text-center"> <small> Total Transfer</small>
-                    <h5><i class="ti-arrows-horizontal text-info"></i> <?php echo "".number_format(subdata($con,'datalog',$from,$until)).""; ?></h5>
-                    <div id="sparklinedash"></div>
-                </div>
-                <div class="col-lg-3 col-md-6 m-b-10 text-center"> <small> Complete Transfer</small>
-                    <h5><i class="ti-arrow-up text-success"></i> <?php echo "".number_format(subdata($con,'Complete',$from,$until)).""; ?></h5>
-                    <div id="sparklinedash2"></div>
-                </div>
-                <div class="col-lg-3 col-md-6 m-b-30 text-center"> <small> Cancelled Transfer</small>
-                    <h5><i class="ti-arrow-left text-primary"></i> <?php echo "".number_format(subdata($con,'Cancelled',$from,$until)).""; ?></h5>
-                    <div id="sparklinedash3"></div>
-                </div>
-                <div class="col-lg-3 col-md-6 m-b-30 text-center"> <small> Aborted Transfer</small>
-                    <h5><i class="ti-arrow-down text-danger"></i> <?php echo "".number_format(subdata($con,'Aborted',$from,$until)).""; ?></h5>
-                    <div id="sparklinedash"></div>
-                </div>
-            </div>
 
 
             <div id="morris-bar-chart-dashboard"></div>
@@ -84,10 +65,11 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
   <!-- ==================================================================================== -->
 
 
-	<table class="table">
+	<br><br><table class="table table-bordered table-striped">
 
 
-				<tr >
+
+				<tr ><br><br>
 
 
 						<th>NO.</th>
@@ -101,7 +83,7 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
 		</thead>
 			<tbody>
 				<?php $no=1;
-							$p=mysqli_query($con, "SELECT * from ima_station ");
+							$p=mysqli_query($con, "SELECT * from ima_station order by nama_station asc ");
 							while ($r=mysqli_fetch_array($p)) {
 						echo "
 						<tr>
@@ -151,6 +133,7 @@ xkey: 'y',
 ykeys: ['Total Pengiriman','Total Penerimaan'],
 labels: ['Total Pengiriman','Penerimaan'],
 barColors: ['#58D68D', '#e3ec63'],
+
 hideHover: 'auto',
 gridLineColor: '#7063ec',
 
@@ -161,16 +144,25 @@ resize: true
 //
 
 // Extra chart
+
 Morris.Bar({
+
  element: 'morris-bar-chart-dashboard',
+
  data:  <?php echo json_encode($arr_dashboard); ?>,
+
  lineColors: ['#58D68D', '#e3ec63'],
  ykeys:  ['Total Pengiriman','Total Penerimaan'],
  labels:  ['Total Pengiriman','Total Penerimaan'],
+ barRatio: 2,
  barColors: ['#58D68D', '#e3ec63'],
  hideHover: 'auto',
  gridLineColor: '#7063ec',
  xkey: 'station',
+
+ xLabelAngle:60,
+   verticalGrid: true,
+   padding: 75,
  xLabelMargin : 5,
  xmax: 5,
 
@@ -183,5 +175,3 @@ Morris.Bar({
 </script>
 </body>
 </html>
-beranda.php
-Page 1 of 2
