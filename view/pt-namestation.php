@@ -240,7 +240,7 @@
                                            <td><a href='./?page=pt-namestation&id=".cekcolom($con, 'ima_station','id_station','nama_station',$station_penerima,$from,$until)."&from=$from&until=$until'>$station_penerima</a> <i class='ti-arrow-right'></i> $r[station_pengiriman]</td>
                                            <td align='right'>".number_format(totalpenerimaanstation($con,$station_penerima,$r['station_pengiriman'],$from,$until))."</td>
                                            <td align='right'>".number_format(status_station($con,'Complete',$r['id_station'],$station_penerima,$from,$until ))."</td>
-                                           <td align='right'>".number_format(status_station($con,'Canceled',$r['id_station'],$station_penerima,$from,$until ))."</td>
+                                           <td align='right'>".number_format(status_station($con,'Cancelled',$r['id_station'],$station_penerima,$from,$until ))."</td>
                                            <td align='right'>".number_format(status_station($con,'Aborted',$r['id_station'],$station_penerima,$from,$until ))."</td>
 
 
