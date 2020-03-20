@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 include '../control/connect.php';
 include '../control/function.php';
 $from= $_GET['from'];
@@ -86,13 +87,25 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
 						<tr>
 							 <td>$no</td>
 							 <td>$r[nama_station]</td>
-							 <td>".cekstatus($con,'data', $r['id_station'], $from, $until)."</td>
-							 <td>".totalpenerimaan($con, $r['nama_station'], $from, $until)."</td>
+							 <td align='right'>".cekstatus($con,'data', $r['id_station'], $from, $until)."</td>
+							 <td align='right'>".totalpenerimaan($con, $r['nama_station'], $from, $until)."</td>
 							  <td></td>
 					 </tr>";
            $no++;
-				 }
+           $cekstatus=$cekstatus+cekstatus($con,'data', $r['id_station'], $from, $until);
+           $totalpenerimaan=$totalpenerimaan+totalpenerimaan($con, $r['nama_station'], $from, $until);
+
+
+         }
 				 ?>
+         <tr>
+           <td></td>
+           <td></td>
+           <td align='right'> <b>Total</b>  <?php echo "$cekstatus"; ?></td>
+           <td align='right'> <b>Total</b>  <?php echo "$totalpenerimaan"; ?></td>
+           <td align='right'> <b>Grand Total</b>  <?php echo $totalpenerimaan+$cekstatus; ?></td>
+
+         </tr>
 			</tbody>
 
 	</table>

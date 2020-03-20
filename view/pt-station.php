@@ -41,7 +41,7 @@
                                 </thead>
                                   <tbody>
                                     <?php
-                                          $p=mysqli_query($con, "SELECT * from ima_station ");
+                                          $p=mysqli_query($con, "SELECT * from ima_station order by nama_station asc ");
                                           while ($r=mysqli_fetch_array($p)) {
                                         echo "
                                         <tr>
