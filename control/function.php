@@ -37,6 +37,11 @@ function getFileList($dir)
 
 		// open pointer to directory and read list of files
 		$d = @dir($dir) or die("getFileList: Failed opening directory {$dir} for reading");
+		if( @dir($dir) or die){
+
+		}else{
+
+		}
 		while (false !== ($entry = $d->read()))
 		{
 				// skip hidden files

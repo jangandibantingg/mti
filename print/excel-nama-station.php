@@ -87,7 +87,7 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
                <td>$station_penerima <i class='ti-arrow-right'></i> $r[station_pengiriman]</td>
                <td align='right'>".number_format(totalpenerimaanstation($con,$station_penerima,$r['station_pengiriman'],$from,$until))."</td>
                <td align='right'>".number_format(status_station($con,'Complete',$r['id_station'],$station_penerima,$from,$until ))."</td>
-               <td align='right'>".number_format(status_station($con,'Canceled',$r['id_station'],$station_penerima,$from,$until ))."</td>
+               <td align='right'>".number_format(status_station($con,'Cancelled',$r['id_station'],$station_penerima,$from,$until ))."</td>
                <td align='right'>".number_format(status_station($con,'Aborted',$r['id_station'],$station_penerima,$from,$until ))."</td>
 
 

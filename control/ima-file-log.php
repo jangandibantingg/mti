@@ -14,6 +14,12 @@ if ($_POST['log'])
     {
 
         $filename = $file['name'];
+        // ganti namafile Ruang Isolasi LT.5'
+        if($filename == 'Ruang Isolasi LT.5' ){
+          $filename = "RIM LT.5";
+        }
+
+
         $a = mysqli_query($con, "SELECT filename from ima_file where filename='$filename'");
         if (!$a || mysqli_num_rows($a) == 0)
         {
@@ -45,16 +51,18 @@ if ($_POST['log'])
                     // code...
                     mysqli_query($con, " INSERT INTO ima_data (filename, transfer, station_pengiriman, station_penerima, log_penerimaan, log_penerima, tanggal, status, id_station)
             VALUES ('$filename','$part2[3]', '$station_pengiriman', '$station_penerima', '$part3[9]', '$logdatepenerima[0]', '$tanggalpenerima', '$part3[1]','$id[0]')");
+            // console.log("Message here");
 
 
                 }
 
             }
-            mysqli_query($con, "insert into ima_file  (filename,date) values ('$filename','$date')");
+
             echo ' <script type="text/javascript"> $.notify("Access granted", "success"); </script>';
         }
-
-        fclose($file_handle);
+        mysqli_query($con, "insert into ima_file  (filename,date) values ('$filename','$date')");
+        
+        fclose($filename);
         $row++;
 
     }
