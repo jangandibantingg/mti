@@ -32,9 +32,9 @@
                                         <th>ID</th>
                                         <th>Station</th>
                                         <th >Total Transfer</th>
-                                        <th>Aborted</th>
+                                        <!-- <th>Aborted</th>
                                         <th>Cancelled</th>
-                                        <th>Complete</th>
+                                        <th>Complete</th> -->
 
 
                                     </tr>
@@ -48,9 +48,7 @@
                                            <td>$r[id_station]</td>
                                            <td><b><a href='./?page=pt-namestation&id=$r[id_station]&from=$from&until=$until'>$r[nama_station]</a></b></td>
                                            <td>".cekstatus($con,'data', $r['id_station'], $from, $until)."</td>
-                                           <td>".cekstatus($con, 'Aborted', $r['id_station'], $from, $until)."</td>
-                                           <td>".cekstatus($con, 'Cancelled', $r['id_station'], $from, $until)."</td>
-                                           <td>".cekstatus($con, 'Complete', $r['id_station'], $from, $until)."</td>
+                                  
                                        </tr>";
                                      }
                                      ?>

@@ -2,7 +2,9 @@
     <div class="col-md-5 align-self-center ">
       <?php if ($page == 'beranda'){
             // echo "<span class='font-weight-bold'> beranda</span>";
-            echo '<a target="_blank" href="./print/beranda.php?id='.$_GET['id'].'&from='.$from.'&until='.$until.'" class="btn btn-info"><i class="ti-printer"></i> Cetak</a>';
+            echo '<a target="_blank" href="./print/beranda.php?id='.$_GET['id'].'&from='.$from.'&until='.$until.'" class="btn btn-info"><i class="ti-printer"></i> Grafik </a>  &nbsp; ';
+
+            echo '<a target="_blank" href="./print/beranda_table.php?id='.$_GET['id'].'&from='.$from.'&until='.$until.'" class="btn btn-info"><i class="ti-printer"></i> Table </a>';
           }elseif($page == 'pt-namestation'){
             echo "<span class='font-weight-bold'> ".namastation($con, $_GET['id'])."  </span> <small>Station Pengiriman </small>";
           }elseif($page == 'pt-station'){

@@ -15,7 +15,7 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="./a4.css">
+  <!-- <link rel="stylesheet" href="./a4.css"> -->
 	    <!--This page plugins -->
 	       <script src="../library/assets/node_modules/datatables.net/js/jquery.dataTables.min.js"></script>
 	       <script src="../library/assets/node_modules/datatables.net-bs4/js/dataTables.responsive.min.js"></script>
@@ -25,8 +25,16 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
 				 <link href="../library/material/dist/css/pages/floating-label.css" rel="stylesheet">
 </head>
 <body>
-<div class="page" size="A4"  >
-	<center>
+
+  <!-- ==================================================================================== -->
+
+
+
+<page size="A4">
+
+
+
+  <center>
 	<H6 class="text-center font-weight-bold"> PT MITRA TEKNOLOGI IMA</H6>
 	<H3 class="text-center font-weight-bold"> REKAPITULASI</h3>
     <H4 class="text-center font-weight-bold"> PENGGUNAAN &nbsp; PNEUMATIC TUBE SYSTEM / PTS</h4>
@@ -46,16 +54,54 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
 	  	}
 	  	 ?>
 	</center>
-
-      <div id="morris-bar-chart-dashboard"></div>
-
-
-</div>
-
-  <!-- ==================================================================================== -->
+  <table class="table table-bordered table-striped">
 
 
 
+				<tr ><br><br>
+
+
+						<th>NO.</th>
+						<th>User</th>
+						<th >Pengiriman</th>
+						<th>Penerimaan</th>
+						<th>Catatan</th>
+
+
+				</tr>
+		</thead>
+			<tbody>
+				<?php $no=1;
+							$p=mysqli_query($con, "SELECT * from ima_station order by nama_station asc ");
+							while ($r=mysqli_fetch_array($p)) {
+						echo "
+						<tr>
+							 <td>$no</td>
+							 <td>$r[nama_station]</td>
+							 <td align='right'>".cekstatus($con,'data', $r['id_station'], $from, $until)."</td>
+							 <td align='right'>".totalpenerimaan($con, $r['nama_station'], $from, $until)."</td>
+							  <td></td>
+					 </tr>";
+           $no++;
+           $cekstatus=$cekstatus+cekstatus($con,'data', $r['id_station'], $from, $until);
+           $totalpenerimaan=$totalpenerimaan+totalpenerimaan($con, $r['nama_station'], $from, $until);
+
+
+         }
+				 ?>
+         <tr>
+           <td></td>
+           <td></td>
+           <td align='right'> <b>Total</b>  <?php echo "$cekstatus"; ?></td>
+           <td align='right'> <b>Total</b>  <?php echo "$totalpenerimaan"; ?></td>
+           <td align='right'> <b>Grand Total</b>  <?php echo $totalpenerimaan+$cekstatus; ?></td>
+
+         </tr>
+			</tbody>
+
+	</table>
+
+</page>
 
 
 
