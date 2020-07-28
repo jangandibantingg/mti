@@ -205,53 +205,7 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
      </div>
 
 
-  	<table class="table table-striped">
-      <thead>
-          <tr >
-
-
-              <th>ID</th>
-              <th>Station pengiriman</th>
-              <th>Total</th>
-              <th>Station Penerimaan</th>
-              <th>Total</th>
-              <th>Complete</th>
-              <th>Canceled</th>
-              <th>Aborted</th>
-
-
-          </tr>
-      </thead>
-        <tbody>
-          <?php
-
-             while ($r=mysqli_fetch_array($p)) {
-              $station_penerima=$r['station_penerima'];
-           ?>
-           <?php
-
-                echo "<tr>
-
-
-                 <td>$r[id_station]</td>
-                 <td>$r[station_pengiriman] <i class='ti-arrow-right'></i> $station_penerima</td>
-                 <td align='right'>".number_format($r['total'])."</td>
-                 <td>$station_penerima <i class='ti-arrow-right'></i> $r[station_pengiriman]</td>
-                 <td align='right'>".number_format(totalpenerimaanstation($con,$station_penerima,$r['station_pengiriman'],$from,$until))."</td>
-                 <td align='right'>".number_format(status_station($con,'Complete',$r['id_station'],$station_penerima,$from,$until ))."</td>
-                 <td align='right'>".number_format(status_station($con,'Cancelled',$r['id_station'],$station_penerima,$from,$until ))."</td>
-                 <td align='right'>".number_format(status_station($con,'Aborted',$r['id_station'],$station_penerima,$from,$until ))."</td>
-
-
-                 </tr>";
-
-              }
-              ?>
-
-
-        </tbody>
-
-    </table>
+  	
 
 	<script type="text/javascript">
 	window.print();

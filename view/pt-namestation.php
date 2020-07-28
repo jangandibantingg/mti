@@ -195,7 +195,8 @@
                             }
                              ?>
                              <p class="text-center">
-                               <a target="_blank" href="./print/nama-station.php?<?php echo "id=$_GET[id]&from=$from&until=$until"; ?>" class="btn btn-info "><i class="ti-printer"></i> Cetak</a>
+                               <a target="_blank" href="./print/nama-station.php?<?php echo "id=$_GET[id]&from=$from&until=$until"; ?>" class="btn btn-info "><i class="ti-printer"></i> Grapik</a>
+                               <a target="_blank" href="./print/nama-station-table.php?<?php echo "id=$_GET[id]&from=$from&until=$until"; ?>" class="btn btn-info "><i class="ti-printer"></i> Table</a>
                                <a target="_blank" href="./print/excel-nama-station.php?<?php echo "id=$_GET[id]&from=$from&until=$until"; ?>" class="btn btn-success "><i class="mdi mdi-file-excel"></i> Export to Excel</a>
                              </p>
                           <div class="card">

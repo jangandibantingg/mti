@@ -17,6 +17,8 @@
                             <a target="_blank" href="./print/excel-data-station.php?<?php echo "from=$from&until=$until"; ?>" class="btn btn-success "><i class="mdi mdi-file-excel"></i> Export to Excel</a>
                           </p>
 
+
+
                           <br>
                           <div class="card">
                             <div class="card-header" align="right">
@@ -48,7 +50,7 @@
                                            <td>$r[id_station]</td>
                                            <td><b><a href='./?page=pt-namestation&id=$r[id_station]&from=$from&until=$until'>$r[nama_station]</a></b></td>
                                            <td>".cekstatus($con,'data', $r['id_station'], $from, $until)."</td>
-                                  
+
                                        </tr>";
                                      }
                                      ?>
