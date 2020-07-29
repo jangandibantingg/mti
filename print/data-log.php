@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../control/connect.php';
 include '../control/function.php';
 $from= $_GET['from'];
@@ -63,8 +64,11 @@ $until= $_GET['until'];
          // $p=mysqli_query($con, "SELECT * from ima_data ");
          echo "<p  align='right'><small class='font-weight-bold'>Data log hari ini -- ".date('D, d M Y')."</small></p>";
        }else {
+         if (!empty($_SESSION['namestation'])) {
+         $p=mysqli_query($con, "SELECT * from ima_data where tanggal between '$from' and '$until' and station_pengiriman like '%$_SESSION[namestation]%' ");
+         }else{
          $p=mysqli_query($con, "SELECT * from ima_data where tanggal between '$from' and '$until' ");
-         // echo "SELECT * from ima_data where tanggal between '$from' and '$until'";
+       }
        }
        $no=1;
         while ($r=mysqli_fetch_array($p)) {

@@ -44,13 +44,11 @@
                                     <?php
 
                                    if (empty($_POST)) {
-
                                       $p=mysqli_query($con, "SELECT * from ima_data where tanggal='$date' ");
                                       echo "<p  align='right'><small class='font-weight-bold'>Data log hari ini -- ".date('D, d M Y')."</small></p>";
-
-
                                    }else {
                                      if (!empty($_POST['namestation'])) {
+                                     $_SESSION['namestation'] = $_POST['namestation'];
                                      $p=mysqli_query($con, "SELECT * from ima_data where tanggal between '$from' and '$until' and station_pengiriman like '%$_POST[namestation]%' ");
                                      echo "<p  align='right'><small> pencarian data untuk Station Pengiriman '$_POST[namestation]' </small></p>";
 
