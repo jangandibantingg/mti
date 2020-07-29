@@ -25,6 +25,7 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
 				 <link href="../library/material/dist/css/pages/floating-label.css" rel="stylesheet">
 </head>
 <body>
+      <div class="impression-paysage">
 <div class="page" size="A4"  >
 	<center>
 	<H6 class="text-center font-weight-bold"> PT MITRA TEKNOLOGI IMA</H6>
@@ -47,7 +48,9 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
 	  	 ?>
 	</center>
 
-      <div id="morris-bar-chart-dashboard"></div>
+          <div id="morris-bar-chart-dashboard"></div>
+    </div>
+
 
 
 </div>

@@ -1,42 +1,20 @@
-body {
-  background: rgb(204,204,204);
-}
-page {
-  background: white;
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 0.5cm;
-  box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
-}
-.subpage {
-  padding: 1cm;
-  border: 5px red solid;
-  height: 256mm;
-  outline: 2cm #FFEAEA solid;
-}
-
-@page {
-  size: A4;
-  margin: 0;
-}
 
 @media print {
-  .page {
-    margin: 0;
-    border: initial;
-    border-radius: initial;
-    width: initial;
-    min-height: initial;
-    box-shadow: initial;
-    background: initial;
-    page-break-after: always;
+  .impression-paysage {
+    display: block;
+                margin-top:120px;
+                margin-left:-100px;
+                text-align:center;
+                width:90%;
+                height:160%;
+                transform: rotate(-90deg);
+                zoom: 122% ;
+
+
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
   }
-}
-page[size="A4"] {
-  width: 21cm;
-  height: 29.7cm;
-}
-page[size="A4"][layout="landscape"] {
-  width: 29.7cm;
-  height: 21cm;
 }
