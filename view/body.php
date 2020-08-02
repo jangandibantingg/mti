@@ -31,7 +31,14 @@
     <link href="library/assets/node_modules/morrisjs/morris.css" rel="stylesheet">
    <!-- page css -->
     <link href="library/material/dist/css/pages/tab-page.css" rel="stylesheet">
-
+    <style media="screen">
+      #morris-bar-chart-dashboard{
+        height:800px;
+      }
+      #morris-bar-chart{
+        height:800px;
+      }
+    </style>
 
 </head>
 
@@ -181,10 +188,22 @@ $(function () {
      xkey: 'y',
      ykeys: ['Total Pengiriman','Total Penerimaan'],
      labels: ['Total Pengiriman','Penerimaan'],
-     barColors: ['#58D68D', '#EC7063'],
+     barColors: ['#48C9B0', '#CD6155'],
      hideHover: 'auto',
      gridLineColor: '#eef0f2',
-     resize: true
+
+
+     yLabelFormat: function(y) {
+      return y = Math.round(y);
+    },
+
+     xLabelAngle:90,
+     verticalGrid: true,
+     padding: 75,
+     xLabelMargin : 20,
+     gridTextSize:11,
+     numLines: 20,
+     onlyIntegers: true,
  });
 
 
@@ -194,15 +213,26 @@ $(function () {
      Morris.Bar({
          element: 'morris-bar-chart-dashboard',
          data:  <?php echo json_encode($arr_dashboard); ?>,
-         lineColors: ['#58D68D', '#EC7063'],
+         lineColors: ['#F2F4F4', '#C0392B'],
          ykeys:  ['Total Pengiriman','Total Penerimaan'],
          labels:  ['Total Pengiriman','Total Penerimaan'],
-         barColors: ['#58D68D', '#EC7063'],
+         barRatio: 2,
+         barColors: ['#48C9B0', '#CD6155'],
          hideHover: 'auto',
-         gridLineColor: '#eef0f2',
+         gridLineColor: '#7063ec',
          xkey: 'station',
-         xLabelMargin :15,
-         xmax: 20,
+         yLabelFormat: function(y) {
+          return y = Math.round(y);
+        },
+
+         xLabelAngle:90,
+         verticalGrid: true,
+         padding: 75,
+         xLabelMargin : 20,
+         gridTextSize:11,
+         numLines: 20,
+         onlyIntegers: true,
+
 
      });
      // donat

@@ -2,6 +2,7 @@
   $from=$_GET['from'];
   $until=$_GET['until'];
   $p=mysqli_query($con, "SELECT count(station_penerima) as total, station_pengiriman,station_penerima, id_station from ima_data where id_station='$_GET[id]' and tanggal between '$from' and '$until' group by station_penerima  ");
+
   $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station where id_station='$_GET[id]'"));
  ?>
 
@@ -187,8 +188,10 @@
                         <div class="col-md-12 ">
                           <hr>
                           <H4 class="text-center font-weight-normal"> HASIL LAPORAN DATA STATION PENGIRIM DAN PENERIMAAN  PEMELIHARAAN PTS RSKD</h4>
+                            <h5 class="text-center font-weight-bold"><?php echo "".namastation($con, $_GET['id']).""; ?></h5>
+
                             <?php
-                            if (!empty($_POST)) {
+                            if (!empty($_GET)) {
                               echo '<H5 class="text-center font-weight-normal"> '.tanggal_indo($from).' / '.tanggal_indo($until).' </h5>';
                             }else{
                               echo '<H5 class="text-center font-weight-normal"> '.tanggal_indo($date).' </h5>';
@@ -196,7 +199,9 @@
                              ?>
                              <p class="text-center">
                                <a target="_blank" href="./print/nama-station.php?<?php echo "id=$_GET[id]&from=$from&until=$until"; ?>" class="btn btn-info "><i class="ti-printer"></i> Grapik</a>
-                               <a target="_blank" href="./print/nama-station-table.php?<?php echo "id=$_GET[id]&from=$from&until=$until"; ?>" class="btn btn-info "><i class="ti-printer"></i> Table</a>
+                               <a target="_blank" href="./print/nama-station-table.php?<?php echo "id=$_GET[id]&from=$from&until=$until"; ?>" class="btn btn-info "><i class="ti-printer"></i> Pengiriman & Penerimaan</a>
+                               <a target="_blank" href="./print/nama-station-table-pengiriman.php?<?php echo "id=$_GET[id]&from=$from&until=$until"; ?>" class="btn megna-theme text-light "><i class="ti-printer"></i> Table Pengiriman</a>
+                               <a target="_blank" href="./print/nama-station-table-penerimaan.php?<?php echo "id=$_GET[id]&from=$from&until=$until"; ?>" class="btn btn-danger "><i class="ti-printer"></i> Table Penerimaan</a>
                                <a target="_blank" href="./print/excel-nama-station.php?<?php echo "id=$_GET[id]&from=$from&until=$until"; ?>" class="btn btn-success "><i class="mdi mdi-file-excel"></i> Export to Excel</a>
                              </p>
                           <div class="card">
@@ -254,12 +259,25 @@
                                   </tbody>
 
                               </table>
+
                               </small>
                         </div>
+                        <!--  -->
+
+
+
+
 
                       </div>
 
+                      <!--  -->
 
+
+
+
+
+
+                      <!--  -->
 
 
 

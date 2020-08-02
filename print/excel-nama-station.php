@@ -43,7 +43,8 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
   <center>
     <h3 class="text-center font-weight-bold"> PT MITRA TEKNOLOGI IMA</h3>
     <H4 class="text-center font-weight-normal"> HASIL LAPORAN DATA STATION PENGIRIM DAN PENERIMAAN  PEMELIHARAAN PTS RSKD</h4>
-
+      <h5 class="text-center font-weight-bold"><?php echo "".namastation($con, $_GET['id']).""; ?></h5>
+      
       <?php
       if (!empty($from)) {
         echo '<H5 class="text-center font-weight-normal"> '.tanggal_indo($from).' / '.tanggal_indo($from).' </h5>';

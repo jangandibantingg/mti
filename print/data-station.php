@@ -29,6 +29,7 @@ $until= $_GET['until'];
 	<center>
 		<h3 class="text-center font-weight-bold"> PT MITRA TEKNOLOGI IMA</h3>
 	  <H4 class="text-center font-weight-normal"> REKAPITULASI HASIL LAPORAN PEMELIHARAAN PTS RSKD</h4>
+    <h5 class="text-center font-weight-bold"><?php echo "".namastation($con, $_GET['id']).""; ?></h5>
 
 	  	<?php
 	  	if (!empty($from)) {

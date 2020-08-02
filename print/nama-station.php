@@ -14,6 +14,7 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <!-- <link rel="stylesheet" href="./a4.css"> -->
 
 	    <!--This page plugins -->
 	       <script src="../library/assets/node_modules/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -24,12 +25,32 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
 				 		href="../library/assets/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css">
 				 <link href="../library/material/dist/css/style.min.css" rel="stylesheet">
 				 <link href="../library/material/dist/css/pages/floating-label.css" rel="stylesheet">
+
+
+
+
+                  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+                  <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> -->
+                  <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+                  <script src="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+
+         <style media="screen">
+           #morris-bar-chart-dashboard{
+             height:1500px;
+           }
+           #morris-bar-chart{
+             height:1200px;
+           }
+         </style>
+
 </head>
 <body>
-
+<div class="impression-paysage">
 	<center>
 		<h3 class="text-center font-weight-bold"> PT MITRA TEKNOLOGI IMA</h3>
     <H4 class="text-center font-weight-normal"> HASIL LAPORAN DATA STATION PENGIRIM DAN PENERIMAAN  PEMELIHARAAN PTS RSKD</h4>
+      <h5 class="text-center font-weight-bold"><?php echo "".namastation($con, $_GET['id']).""; ?></h5>
 
 
 	  	<?php
@@ -42,7 +63,7 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
 	</center>
 
 
-  <div class="col-md-12">
+  <div class="col-md-12 ">
 
         <!--  -->
         <div class="card-group">
@@ -204,26 +225,16 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
        </div>
      </div>
 
+   </div>
 
-  	
+
+
 
 	<script type="text/javascript">
 	window.print();
 	window.onfocus=function(){ window.close();}
 	</script>
-	<!-- This is data table -->
-<script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
-<script src="../ajax/datatables.js"></script>
 
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
-<script src="../library/assets/node_modules/raphael/raphael-min.js"></script>
-<script src="../library/assets/node_modules/morrisjs/morris.js"></script>
 <?php require "../chart/bar-status-station.php"; ?>
 <!-- <?php require "../chart/donute-total-transfer.php"; ?> -->
 <script type="text/javascript">
@@ -237,31 +248,20 @@ data: <?php echo json_encode($arr_station); ?>,
 xkey: 'y',
 ykeys: ['Total Pengiriman','Total Penerimaan'],
 labels: ['Total Pengiriman','Penerimaan'],
-barColors: ['#58D68D', '#EC7063'],
-hideHover: 'auto',
-gridLineColor: '#eef0f2',
-resize: true
+yLabelFormat: function(y) {
+ return y = Math.round(y);
+},
+barColors: ['#48C9B0', '#CD6155'],
+xLabelAngle:90,
+verticalGrid: true,
+padding: 75,
+xLabelMargin : 20,
+gridTextSize:11,
+numLines: 20,
+onlyIntegers: true,
 });
 
 
-//
-
-// Extra chart
-Morris.Bar({
- element: 'morris-bar-chart-dashboard',
- data:  <?php echo json_encode($arr_dashboard); ?>,
- lineColors: ['#58D68D', '#EC7063'],
- ykeys:  ['Total Pengiriman','Total Penerimaan'],
- labels:  ['Total Pengiriman','Total Penerimaan'],
- barColors: ['#58D68D', '#EC7063'],
- hideHover: 'auto',
- gridLineColor: '#eef0f2',
- xkey: 'station',
- xLabelMargin :15,
- xmax: 20,
-
-});
-// donat
 
 
 

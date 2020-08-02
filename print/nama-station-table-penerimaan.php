@@ -29,7 +29,7 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
 
 	<center>
 		<h3 class="text-center font-weight-bold"> PT MITRA TEKNOLOGI IMA</h3>
-    <H4 class="text-center font-weight-normal"> HASIL LAPORAN DATA STATION PENGIRIM DAN PENERIMAAN  PEMELIHARAAN PTS RSKD</h4>
+    <H4 class="text-center font-weight-normal"> HASIL LAPORAN DATA STATION PENERIMAAN PEMELIHARAAN PTS RSKD</h4>
       <h5 class="text-center font-weight-bold"><?php echo "".namastation($con, $_GET['id']).""; ?></h5>
 
 	  	<?php
@@ -54,10 +54,9 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
 
 
               <th>ID</th>
-              <th>Station pengiriman</th>
-              <th>Total</th>
               <th>Station Penerimaan</th>
               <th>Total</th>
+
               <th>Complete</th>
               <th>Canceled</th>
               <th>Aborted</th>
@@ -69,21 +68,23 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
           <?php
 
              while ($r=mysqli_fetch_array($p)) {
-              $station_penerima=$r['station_penerima'];
+               $station_penerima=$r['station_penerima'];
+               $station_pengiriman=$r['station_pengiriman'];
+               $q=mysqli_fetch_array(mysqli_query($con, "select id_station from ima_station where nama_station='$station_penerima'"));
+               $id_penerimaan=$q['id_station'];
+
            ?>
            <?php
 
                 echo "<tr>
 
 
-                 <td>$r[id_station]</td>
-                 <td>$r[station_pengiriman] <i class='ti-arrow-right'></i> $station_penerima</td>
-                 <td align='right'>".number_format($r['total'])."</td>
+                 <td>$id_penerimaan</td>
                  <td>$station_penerima <i class='ti-arrow-right'></i> $r[station_pengiriman]</td>
                  <td align='right'>".number_format(totalpenerimaanstation($con,$station_penerima,$r['station_pengiriman'],$from,$until))."</td>
-                 <td align='right'>".number_format(status_station($con,'Complete',$r['id_station'],$station_penerima,$from,$until ))."</td>
-                 <td align='right'>".number_format(status_station($con,'Cancelled',$r['id_station'],$station_penerima,$from,$until ))."</td>
-                 <td align='right'>".number_format(status_station($con,'Aborted',$r['id_station'],$station_penerima,$from,$until ))."</td>
+                 <td align='right'>".number_format(status_station($con,'Complete',$id_penerimaan,$station_pengiriman,$from,$until ))."</td>
+                 <td align='right'>".number_format(status_station($con,'Cancelled',$id_penerimaan,$station_pengiriman,$from,$until ))."</td>
+                 <td align='right'>".number_format(status_station($con,'Aborted',$id_penerimaan,$station_pengiriman,$from,$until ))."</td>
 
 
                  </tr>";
