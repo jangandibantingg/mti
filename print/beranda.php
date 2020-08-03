@@ -92,6 +92,8 @@ $q=mysqli_fetch_array(mysqli_query($con, "select nama_station from ima_station w
 
 <?php require "../chart/bar-status-station.php"; ?>
 <!-- <?php require "../chart/donute-total-transfer.php"; ?> -->
+
+
 <script type="text/javascript">
 
 $(function () {
@@ -124,5 +126,19 @@ Morris.Bar({
 // donat
 });
 </script>
+
+<!-- <form name="doc_test" action="<?php echo ($_SERVER['PHP_SELF']);?>" method="post">
+  <input type="submit" name="submit_doc" value="Ekspor ke MS WORD">
+</form> -->
+
+<?php
+  if(isset($_POST['submit_doc'])) {
+    header("Content-Type: application/vnd.msword");
+    header("Expires: 0");
+    header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+    header("content-disposition: attachment;filename=hasilekspor.doc");
+  }
+?>
+
 </body>
 </html>

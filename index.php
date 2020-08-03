@@ -8,19 +8,27 @@ require_once "control/function.php";
 require_once "control/get_mobile.php";
 
 
-
-// ==============================================================
-  if (empty($_POST['from']) ) {
-    $from = $date;
-    $until = $date;
-  }else{
-    $from= $_POST['from'];
-    $until= $_POST['until'];
-  }
 // =========================================================================
 if (isset($_GET['page'])) {
   $page=$_GET['page'];
 }
+// ==============================================================
+
+
+  if (empty($_POST['from']) ) {
+    $from = $date;
+    $until = $date;
+
+  
+
+  }else{
+    $from= $_POST['from'];
+    $until= $_POST['until'];
+  }
+
+
+
+
 // =========================================================================
 
 $user = new User($db);
@@ -29,6 +37,7 @@ $member = $user->getuser($_SESSION['user_session']);
 $log=mysqli_fetch_array(mysqli_query($con, "select * from ima_log where id_log='1'"));
 // ===================================================
 // $toko   = $gettoko->getuser($_SESSION['user_session']);
+
 if ($user->isLoggedIn()) {
   setcookie("nama","".$member['nama']."");
   setcookie("email","".$member['email']."");
@@ -52,9 +61,5 @@ if(!$user->isLoggedIn()){
 }else {
   include 'view/body.php';
 }
-
-
-
-
 
 ?>
